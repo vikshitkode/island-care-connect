@@ -4,11 +4,12 @@ const Header = () => {
   return (
     <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-pharmacy-blue to-pharmacy-green rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">M</span>
-          </div>
-          <h1 className="text-xl font-semibold text-foreground">Mercer Island Pharmacy</h1>
+        <div className="flex items-center space-x-3">
+          <img 
+            src="/lovable-uploads/30dba14e-68dd-4b60-a1bd-3a1fcee0cbfc.png" 
+            alt="Mercer Island Pharmacy Logo" 
+            className="h-10 w-auto"
+          />
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">
