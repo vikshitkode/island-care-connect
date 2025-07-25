@@ -32,8 +32,17 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-2 text-white/80">
               <li>(206) 622-6094</li>
-              <li>2701 76th Ave SE</li>
-              <li>Mercer Island, WA 98040</li>
+              <li>
+                <a 
+                  href="https://maps.google.com/?q=2701+76th+Ave+SE,+Mercer+Island,+WA+98040" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  2701 76th Ave SE<br />
+                  Mercer Island, WA 98040
+                </a>
+              </li>
               <li>mercerislandpharmacy@gmail.com</li>
             </ul>
           </div>
