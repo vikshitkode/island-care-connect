@@ -418,7 +418,7 @@ const TransferPrescription: React.FC = () => {
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
-                      <p className="text-sm">We'll call you when your prescriptions are ready</p>
+                      <p className="text-sm">We'll text you when your prescriptions are ready</p>
                     </div>
                   </CardContent>
                 </Card>
