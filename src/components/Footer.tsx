@@ -22,11 +22,6 @@ const Footer = () => {
               Your trusted neighborhood pharmacy providing personalized care 
               and comprehensive health services since 1998.
             </p>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-              <p className="text-white/80 text-sm">
-                ✓ Licensed by the Washington State Board of Pharmacy
-              </p>
-            </div>
           </div>
           
           <div>

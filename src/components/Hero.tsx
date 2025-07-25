@@ -73,6 +73,15 @@ const Hero = () => {
             <div className="text-white/80 font-medium">Happy Customers</div>
           </div>
         </div>
+        
+        {/* Licensing Badge */}
+        <div className="mt-16 animate-fade-in delay-1000">
+          <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20 inline-block">
+            <p className="text-white/90 text-sm font-medium">
+              ✓ Licensed by the Washington State Board of Pharmacy
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
