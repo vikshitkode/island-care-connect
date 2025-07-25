@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, RotateCcw, User, Phone, Building2, Pill, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,7 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const TransferPrescription = () => {
+const TransferPrescription: React.FC = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     firstName: "",
