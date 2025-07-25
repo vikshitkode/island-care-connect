@@ -6,11 +6,11 @@ const Header = () => {
   return (
     <header className="bg-background/80 backdrop-blur-xl border-b border-primary/10 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-3 group">
+        <Link to="/" className="flex items-center space-x-3 group cursor-pointer">
           <img 
-            src="/lovable-uploads/fd933d4c-e5df-48f8-a99f-7236c85e8509.png" 
+            src="/lovable-uploads/a1b03d9f-f3f1-42ad-8f49-9ce4ebc61a10.png" 
             alt="Mercer Island Pharmacy Logo" 
-            className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+            className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
         
