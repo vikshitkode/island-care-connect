@@ -311,11 +311,18 @@ const Shop = () => {
             Visit our store or call us - our pharmacists are here to help you find the best solutions
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 hover:shadow-lg">
+            <Button 
+              size="lg" 
+              className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 hover:shadow-lg font-semibold px-8 py-3"
+            >
               Visit Our Store
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary hover:scale-105 transition-all duration-300 hover:shadow-lg">
-              <a href="tel:+12066473784">Call Us Now</a>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-2 border-white text-white hover:bg-white hover:text-primary hover:scale-105 transition-all duration-300 hover:shadow-lg font-semibold px-8 py-3"
+            >
+              <a href="tel:+12066473784" className="flex items-center">Call Us Now</a>
             </Button>
           </div>
         </div>
