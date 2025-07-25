@@ -249,8 +249,18 @@ const Shop = () => {
           </div>
           
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-gradient-to-r from-primary to-accent text-white">
-              Visit Our Store for Nordic Naturals
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-primary to-accent text-white"
+              asChild
+            >
+              <a 
+                href="https://maps.google.com/?q=2703+76th+Ave+SE,+Mercer+Island,+WA+98040"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit Our Store for Nordic Naturals
+              </a>
             </Button>
           </div>
         </div>
