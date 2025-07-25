@@ -8,6 +8,11 @@ const Services = () => {
       icon: "💊"
     },
     {
+      title: "Free Delivery",
+      description: "Convenient free delivery service to your home or office within Mercer Island.",
+      icon: "🚚"
+    },
+    {
       title: "Medication Therapy Management",
       description: "Comprehensive medication reviews to optimize your therapy and prevent drug interactions.",
       icon: "📋"

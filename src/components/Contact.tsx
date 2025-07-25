@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button";
 
 const Contact = () => {
   const hours = [
-    { day: "Monday - Friday", time: "9:00 AM - 7:00 PM" },
-    { day: "Saturday", time: "9:00 AM - 6:00 PM" },
-    { day: "Sunday", time: "10:00 AM - 4:00 PM" },
+    { day: "Monday - Friday", time: "8:30 AM - 5:00 PM" },
+    { day: "Saturday", time: "Closed" },
+    { day: "Sunday", time: "Closed" },
   ];
 
   return (
@@ -28,7 +28,7 @@ const Contact = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-relaxed">
-                2755 77th Avenue SE<br />
+                2701 76th Ave SE<br />
                 Mercer Island, WA 98040<br />
                 <span className="text-sm text-pharmacy-blue">Easy parking available</span>
               </p>
@@ -44,9 +44,8 @@ const Contact = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-relaxed">
-                Phone: (206) 232-5466<br />
-                Fax: (206) 232-5467<br />
-                Email: info@mercerpharmacy.com
+                Phone: (206) 622-6094<br />
+                Email: mercerislandpharmacy@gmail.com
               </p>
             </CardContent>
           </Card>

@@ -31,10 +31,10 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-2 text-white/80">
-              <li>(206) 232-5466</li>
-              <li>2755 77th Avenue SE</li>
+              <li>(206) 622-6094</li>
+              <li>2701 76th Ave SE</li>
               <li>Mercer Island, WA 98040</li>
-              <li>info@mercerpharmacy.com</li>
+              <li>mercerislandpharmacy@gmail.com</li>
             </ul>
           </div>
         </div>
