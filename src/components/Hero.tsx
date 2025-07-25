@@ -33,7 +33,7 @@ const Hero = () => {
           </Button>
           <Button 
             size="lg" 
-            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-pharmacy-blue px-8 py-4 text-lg font-medium transition-all"
+            className="bg-white text-pharmacy-blue hover:bg-white/90 px-8 py-4 text-lg font-medium"
           >
             Transfer Prescription
           </Button>
