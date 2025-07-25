@@ -89,12 +89,14 @@ const Contact = () => {
         </div>
         
         <div className="text-center">
-          <Card className="max-w-2xl mx-auto bg-gradient-to-r from-primary/10 via-card/90 to-secondary/10 border-primary/30 backdrop-blur-sm shadow-xl">
+          <Card className="max-w-2xl mx-auto bg-gradient-to-br from-primary/20 via-background to-accent/20 border-2 border-primary/20 backdrop-blur-lg shadow-2xl hover:shadow-primary/20 transition-all duration-500">
             <CardContent className="p-10">
               <div className="mb-6">
-                <span className="text-4xl">💊</span>
+                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-2xl shadow-lg">
+                  💊
+                </div>
               </div>
-              <h3 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
+              <h3 className="text-3xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-4">
                 Need a Prescription Refill?
               </h3>
               <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
@@ -102,10 +104,10 @@ const Contact = () => {
                 We'll have your medications ready for pickup!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   Order Refill Online
                 </Button>
-                <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1">
+                <Button variant="outline" className="border-2 border-primary/60 text-primary hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white hover:border-transparent transition-all duration-300 hover:-translate-y-1">
                   Call for Refill
                 </Button>
               </div>
