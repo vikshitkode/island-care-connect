@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Pill } from "lucide-react";
+import { Pill, LogOut, User } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const Header = () => {
+  const { user, signOut } = useAuth();
+  
   return (
     <header className="bg-background/80 backdrop-blur-xl border-b border-primary/10 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -24,14 +27,32 @@ const Header = () => {
           <a href="#contact" className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium relative after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-gradient-to-r after:from-primary after:to-accent after:transition-all after:duration-300 hover:after:w-full">
             Contact
           </a>
-          <Button 
-            asChild
-            className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
-          >
-            <a href="tel:+12066226094" className="inline-flex items-center gap-2">
-              <Pill size={16} /> Refill Prescription
-            </a>
-          </Button>
+          {user ? (
+            <div className="flex items-center gap-4">
+              <span className="text-sm text-muted-foreground flex items-center gap-2">
+                <User size={16} />
+                {user.user_metadata?.first_name || user.email}
+              </span>
+              <Button 
+                onClick={signOut}
+                variant="outline"
+                size="sm"
+                className="inline-flex items-center gap-2"
+              >
+                <LogOut size={16} />
+                Sign Out
+              </Button>
+            </div>
+          ) : (
+            <Button 
+              asChild
+              className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+            >
+              <a href="tel:+12066226094" className="inline-flex items-center gap-2">
+                <Pill size={16} /> Refill Prescription
+              </a>
+            </Button>
+          )}
         </nav>
       </div>
     </header>
