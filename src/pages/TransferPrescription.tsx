@@ -150,7 +150,7 @@ const TransferPrescription: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Call Option */}
-                <Card className="bg-gradient-to-br from-accent/10 via-background to-accent/5 border-accent/20 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <Card className="bg-gradient-to-br from-accent/10 via-background to-accent/5 border-accent/20 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col">
                   <CardHeader className="text-center pb-4">
                     <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-accent to-accent/80 rounded-full flex items-center justify-center shadow-lg">
                       <PhoneCall size={40} className="text-white" />
@@ -160,8 +160,8 @@ const TransferPrescription: React.FC = () => {
                       Speak directly with our pharmacy team for immediate assistance
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="text-center space-y-6">
-                    <div className="space-y-4">
+                  <CardContent className="text-center space-y-6 flex-1 flex flex-col">
+                    <div className="space-y-4 flex-1">
                       <div className="bg-accent/5 p-4 rounded-lg">
                         <h4 className="font-semibold text-accent mb-2">Why call us?</h4>
                         <ul className="text-sm text-muted-foreground space-y-1">
@@ -171,25 +171,25 @@ const TransferPrescription: React.FC = () => {
                           <li>• Faster processing</li>
                         </ul>
                       </div>
-                      <div className="text-center">
-                        <p className="text-sm text-muted-foreground mb-4">Available Mon-Fri 8:30AM-5PM, Closed on Sat and Sun</p>
-                        <Button
-                          asChild
-                          size="lg"
-                          className="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 py-3 text-lg"
-                        >
-                          <a href="tel:+12066226094" className="inline-flex items-center gap-2">
-                            <PhoneCall size={20} />
-                            Call (206) 622-6094
-                          </a>
-                        </Button>
-                      </div>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground mb-4">Available Mon-Fri 8:30AM-5PM, Closed on Sat and Sun</p>
+                      <Button 
+                        asChild
+                        size="lg"
+                        className="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 py-3 text-lg"
+                      >
+                        <a href="tel:+12066226094" className="inline-flex items-center gap-2">
+                          <PhoneCall size={20} />
+                          Call (206) 622-6094
+                        </a>
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
 
                 {/* Form Option */}
-                <Card className="bg-gradient-to-br from-primary/10 via-background to-primary/5 border-primary/20 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <Card className="bg-gradient-to-br from-primary/10 via-background to-primary/5 border-primary/20 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col">
                   <CardHeader className="text-center pb-4">
                     <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-lg">
                       <FileText size={40} className="text-white" />
@@ -199,8 +199,8 @@ const TransferPrescription: React.FC = () => {
                       Complete our online form at your convenience
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="text-center space-y-6">
-                    <div className="space-y-4">
+                  <CardContent className="text-center space-y-6 flex-1 flex flex-col">
+                    <div className="space-y-4 flex-1">
                       <div className="bg-primary/5 p-4 rounded-lg">
                         <h4 className="font-semibold text-primary mb-2">Why use the form?</h4>
                         <ul className="text-sm text-muted-foreground space-y-1">
@@ -210,17 +210,17 @@ const TransferPrescription: React.FC = () => {
                           <li>• Secure and private</li>
                         </ul>
                       </div>
-                      <div className="text-center">
-                        <p className="text-sm text-muted-foreground mb-4">We'll contact you within 24 hours</p>
-                        <Button 
-                          onClick={() => setShowForm(true)}
-                          size="lg"
-                          className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 py-3 text-lg"
-                        >
-                          <FileText size={20} className="mr-2" />
-                          Start Online Form
-                        </Button>
-                      </div>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground mb-4">We'll contact you within 24 hours</p>
+                      <Button 
+                        onClick={() => setShowForm(true)}
+                        size="lg"
+                        className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 py-3 text-lg"
+                      >
+                        <FileText size={20} className="mr-2" />
+                        Start Online Form
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
