@@ -50,7 +50,21 @@ const TransferPrescription: React.FC = () => {
       return;
     }
 
-    // Simulate form submission
+    // Simulate form submission - In production, send to your backend API
+    console.log("Form submitted with data:", formData);
+    
+    // Example: Send to backend API
+    // try {
+    //   const response = await fetch('/api/transfer-prescription', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(formData)
+    //   });
+    //   const result = await response.json();
+    // } catch (error) {
+    //   console.error('Error submitting form:', error);
+    // }
+
     toast({
       title: "Transfer Request Submitted!",
       description: "We'll contact you within 24 hours to complete your prescription transfer.",
@@ -124,7 +138,7 @@ const TransferPrescription: React.FC = () => {
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <Label htmlFor="firstName">First Name *</Label>
+                          <Label htmlFor="firstName">First Name <span className="text-red-500">*</span></Label>
                           <Input
                             id="firstName"
                             name="firstName"
@@ -135,7 +149,7 @@ const TransferPrescription: React.FC = () => {
                           />
                         </div>
                         <div>
-                          <Label htmlFor="lastName">Last Name *</Label>
+                          <Label htmlFor="lastName">Last Name <span className="text-red-500">*</span></Label>
                           <Input
                             id="lastName"
                             name="lastName"
@@ -148,7 +162,7 @@ const TransferPrescription: React.FC = () => {
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <Label htmlFor="phone">Phone Number *</Label>
+                          <Label htmlFor="phone">Phone Number <span className="text-red-500">*</span></Label>
                           <Input
                             id="phone"
                             name="phone"
@@ -191,7 +205,7 @@ const TransferPrescription: React.FC = () => {
                         Current Pharmacy Information
                       </h3>
                       <div>
-                        <Label htmlFor="currentPharmacy">Current Pharmacy Name & Address *</Label>
+                        <Label htmlFor="currentPharmacy">Current Pharmacy Name & Address <span className="text-red-500">*</span></Label>
                         <Input
                           id="currentPharmacy"
                           name="currentPharmacy"
