@@ -67,7 +67,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     const emailResponse = await resend.emails.send({
       from: "Pharmacy Notifications <notifications@resend.dev>",
-      to: ["pharmacy@example.com"], // Replace with your actual email
+      to: ["kodevikshit2000@gmail.com"], // Your pharmacy email
       subject: `New Transfer Request: ${record.first_name} ${record.last_name}`,
       html: emailHtml,
     });
