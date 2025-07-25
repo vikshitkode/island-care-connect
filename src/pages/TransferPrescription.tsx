@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { supabase } from "@/integrations/supabase/client";
 
 const TransferPrescription: React.FC = () => {
   const { toast } = useToast();
@@ -30,6 +31,8 @@ const TransferPrescription: React.FC = () => {
     notes: ""
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -38,7 +41,7 @@ const TransferPrescription: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validate required fields
@@ -51,26 +54,56 @@ const TransferPrescription: React.FC = () => {
       return;
     }
 
-    // Log form data for now - will be replaced with Supabase integration
-    console.log("Transfer request submitted:", formData);
+    setIsSubmitting(true);
 
-    toast({
-      title: "Transfer Request Submitted!",
-      description: "Your request has been received. We'll contact you within 24 hours to complete your prescription transfer.",
-    });
+    try {
+      // Insert the transfer request into Supabase
+      const { error } = await supabase
+        .from('transfer_requests')
+        .insert({
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          phone: formData.phone,
+          email: formData.email || null,
+          date_of_birth: formData.dateOfBirth || null,
+          current_pharmacy: formData.currentPharmacy,
+          current_pharmacy_phone: formData.currentPharmacyPhone || null,
+          medications: formData.medications || null,
+          notes: formData.notes || null
+        });
 
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      phone: "",
-      email: "",
-      dateOfBirth: "",
-      currentPharmacy: "",
-      currentPharmacyPhone: "",
-      medications: "",
-      notes: ""
-    });
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Transfer Request Submitted!",
+        description: "Your request has been received. We'll contact you within 24 hours to complete your prescription transfer.",
+      });
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        dateOfBirth: "",
+        currentPharmacy: "",
+        currentPharmacyPhone: "",
+        medications: "",
+        notes: ""
+      });
+
+    } catch (error) {
+      console.error('Error submitting transfer request:', error);
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your request. Please try again or call us directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -252,9 +285,10 @@ const TransferPrescription: React.FC = () => {
 
                     <Button 
                       type="submit" 
+                      disabled={isSubmitting}
                       className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 py-3 text-lg"
                     >
-                      Submit Transfer Request
+                      {isSubmitting ? "Submitting..." : "Submit Transfer Request"}
                     </Button>
                   </form>
                 </CardContent>
