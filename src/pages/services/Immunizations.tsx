@@ -56,10 +56,10 @@ const Immunizations = () => {
 
           <div className="text-center">
             <p className="text-muted-foreground mb-6">
-              Call pharmacy
+              Call us for any queries
             </p>
             <Link to="/#contact">
-              <Button size="lg">Call Pharmacy</Button>
+              <Button size="lg">Call Now 📞</Button>
             </Link>
           </div>
         </div>
