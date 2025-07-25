@@ -35,7 +35,7 @@ const Hero = () => {
         
         <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed text-white/90 animate-fade-in delay-300">
           Your trusted neighborhood pharmacy providing personalized care, expert advice, 
-          and comprehensive health services for over 25 years.
+          and comprehensive health services.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 animate-fade-in delay-500">
