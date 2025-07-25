@@ -94,6 +94,14 @@ const About = () => {
             </CardContent>
           </Card>
           
+          <Card className="group bg-gradient-to-br from-primary/10 via-background to-accent/10 border-primary/30 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <CardContent className="p-10 relative z-10">
+              <div className="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">5000+</div>
+              <div className="text-sm text-muted-foreground font-medium group-hover:text-foreground transition-colors duration-300">Prescriptions Filled</div>
+            </CardContent>
+          </Card>
+          
         </div>
       </div>
     </section>
