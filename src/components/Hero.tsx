@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Pill, RotateCcw } from "lucide-react";
 import heroImage from "@/assets/pharmacy-hero.jpg";
 
 const Hero = () => {
@@ -39,15 +40,15 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 animate-fade-in delay-500">
           <Button 
             size="lg" 
-            className="bg-white/10 backdrop-blur-md text-white border-2 border-white/30 hover:bg-white hover:text-primary px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            className="bg-white/10 backdrop-blur-md text-white border-2 border-white/30 hover:bg-white hover:text-primary px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl inline-flex items-center gap-2"
           >
-            💊 Refill Prescription
+            <Pill size={20} /> Refill Prescription
           </Button>
           <Button 
             size="lg" 
-            className="bg-accent/90 text-white border-2 border-accent hover:bg-accent hover:scale-105 px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-2xl"
+            className="bg-accent/90 text-white border-2 border-accent hover:bg-accent hover:scale-105 px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-2xl inline-flex items-center gap-2"
           >
-            🔄 Transfer Prescription
+            <RotateCcw size={20} /> Transfer Prescription
           </Button>
         </div>
         

@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
+import { Pill, Truck, ClipboardList, Syringe, Heart, MessageCircle, Hospital } from "lucide-react";
 
 const Services = () => {
   const navigate = useNavigate();
@@ -8,37 +9,37 @@ const Services = () => {
     {
       title: "Prescription Services",
       description: "Fast, accurate prescription filling with competitive pricing and insurance coordination.",
-      icon: "💊",
+      icon: Pill,
       route: "/services/prescription-services"
     },
     {
       title: "Free Delivery",
       description: "Convenient free delivery service to your home or office within Mercer Island.",
-      icon: "🚚",
+      icon: Truck,
       route: "/services/free-delivery"
     },
     {
       title: "Medication Therapy Management",
       description: "Comprehensive medication reviews to optimize your therapy and prevent drug interactions.",
-      icon: "📋",
+      icon: ClipboardList,
       route: "/services/medication-therapy"
     },
     {
       title: "Immunizations",
       description: "Full range of vaccines including flu shots, COVID-19, and travel immunizations.",
-      icon: "💉",
+      icon: Syringe,
       route: "/services/immunizations"
     },
     {
       title: "Health Screenings",
       description: "Blood pressure monitoring, cholesterol testing, and diabetes management support.",
-      icon: "🩺",
+      icon: Heart,
       route: "/services/health-screenings"
     },
     {
       title: "Wellness Consultations",
       description: "One-on-one consultations for medication questions and health concerns.",
-      icon: "💬",
+      icon: MessageCircle,
       route: "/services/wellness-consultations"
     }
   ];
@@ -52,7 +53,7 @@ const Services = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <div className="inline-block mb-6">
-            <span className="text-6xl">🏥</span>
+            <Hospital size={60} className="text-primary mx-auto mb-6" />
           </div>
           <h2 className="text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6">
             Our Services
@@ -74,7 +75,7 @@ const Services = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <CardHeader className="text-center pb-4 relative z-10">
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
+                <service.icon size={48} className="text-primary group-hover:text-accent transition-colors duration-300 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300" />
                 <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">{service.title}</CardTitle>
               </CardHeader>
               <CardContent className="relative z-10">

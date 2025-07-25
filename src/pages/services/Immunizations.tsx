@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Syringe, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -22,7 +22,7 @@ const Immunizations = () => {
         
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-6xl mb-6">💉</div>
+            <Syringe size={60} className="text-primary mx-auto mb-6" />
             <h1 className="text-4xl font-bold text-foreground mb-4">Immunizations</h1>
             <p className="text-xl text-muted-foreground">
               Full range of vaccines including flu shots, COVID-19, and travel immunizations.
@@ -59,7 +59,7 @@ const Immunizations = () => {
               Call us for any queries
             </p>
             <Link to="/#contact">
-              <Button size="lg">Call Now 📞</Button>
+              <Button size="lg" className="inline-flex items-center gap-2"><Phone size={16} /> Call Now</Button>
             </Link>
           </div>
         </div>

@@ -1,3 +1,5 @@
+import { Phone, MapPin, Mail, Pill, Users, PhoneCall, RotateCcw } from "lucide-react";
+
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-br from-primary via-primary/95 to-accent text-white py-16 relative overflow-hidden">
@@ -29,10 +31,10 @@ const Footer = () => {
           <div>
             <h4 className="text-xl font-semibold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Quick Links</h4>
             <ul className="space-y-3 text-white/80">
-              <li><a href="#services" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">💊 Services</a></li>
-              <li><a href="#about" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">👥 About Us</a></li>
-              <li><a href="#contact" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">📞 Contact</a></li>
-              <li><a href="#" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">🔄 Online Refills</a></li>
+              <li><a href="#services" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-flex items-center gap-2"><Pill size={16} /> Services</a></li>
+              <li><a href="#about" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-flex items-center gap-2"><Users size={16} /> About Us</a></li>
+              <li><a href="#contact" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-flex items-center gap-2"><PhoneCall size={16} /> Contact</a></li>
+              <li><a href="#" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-flex items-center gap-2"><RotateCcw size={16} /> Online Refills</a></li>
             </ul>
           </div>
           
@@ -40,12 +42,12 @@ const Footer = () => {
             <h4 className="text-xl font-semibold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Contact Info</h4>
             <ul className="space-y-4 text-white/80">
               <li className="flex items-center space-x-2">
-                <span>📞</span>
+                <Phone size={16} />
                 <span className="hover:text-white transition-colors cursor-pointer">(206) 622-6094</span>
               </li>
               <li>
                 <div className="flex items-start space-x-2">
-                  <span>📍</span>
+                  <MapPin size={16} className="mt-0.5 flex-shrink-0" />
                   <a 
                     href="https://maps.google.com/?q=2703+76th+Ave+SE,+Mercer+Island,+WA+98040" 
                     target="_blank" 
@@ -58,7 +60,7 @@ const Footer = () => {
                 </div>
               </li>
               <li className="flex items-center space-x-2">
-                <span>✉️</span>
+                <Mail size={16} />
                 <span className="hover:text-white transition-colors cursor-pointer">mercerislandpharmacy@gmail.com</span>
               </li>
             </ul>

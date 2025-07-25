@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -22,7 +22,7 @@ const FreeDelivery = () => {
         
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-6xl mb-6">🚚</div>
+            <Truck size={60} className="text-primary mx-auto mb-6" />
             <h1 className="text-4xl font-bold text-foreground mb-4">Free Delivery</h1>
             <p className="text-xl text-muted-foreground">
               Convenient free delivery service to your home or office within Mercer Island.

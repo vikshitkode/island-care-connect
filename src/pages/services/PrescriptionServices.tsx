@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Pill } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -22,7 +22,7 @@ const PrescriptionServices = () => {
         
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-6xl mb-6">💊</div>
+            <Pill size={60} className="text-primary mx-auto mb-6" />
             <h1 className="text-4xl font-bold text-foreground mb-4">Prescription Services</h1>
             <p className="text-xl text-muted-foreground">
               Fast, accurate prescription filling with competitive pricing and insurance coordination.

@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Users } from "lucide-react";
 
 const About = () => {
   const teamMembers = [
@@ -19,7 +20,7 @@ const About = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <div className="inline-block mb-6">
-            <span className="text-6xl">👥</span>
+            <Users size={60} className="text-primary mx-auto mb-6" />
           </div>
           <h2 className="text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6">
             About Mercer Island Pharmacy

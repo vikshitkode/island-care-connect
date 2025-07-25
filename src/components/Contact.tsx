@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Hospital, MapPin, Phone, Clock, Pill } from "lucide-react";
 
 const Contact = () => {
   const hours = [
@@ -18,7 +19,7 @@ const Contact = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
-            <span className="text-primary text-6xl">🏥</span>
+            <Hospital size={60} className="text-primary mx-auto mb-6" />
           </div>
           <h2 className="text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6">
             Visit Us Today
@@ -33,7 +34,7 @@ const Contact = () => {
           <Card className="bg-card/80 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center text-foreground group-hover:text-primary transition-colors">
-                <span className="mr-3 text-2xl">📍</span>
+                <MapPin className="mr-3 text-primary" size={24} />
                 Location
               </CardTitle>
             </CardHeader>
@@ -56,7 +57,7 @@ const Contact = () => {
           <Card className="bg-card/80 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center text-foreground group-hover:text-primary transition-colors">
-                <span className="mr-3 text-2xl">📞</span>
+                <Phone className="mr-3 text-primary" size={24} />
                 Contact
               </CardTitle>
             </CardHeader>
@@ -71,7 +72,7 @@ const Contact = () => {
           <Card className="bg-card/80 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group md:col-span-2 lg:col-span-1">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center text-foreground group-hover:text-primary transition-colors">
-                <span className="mr-3 text-2xl">🕐</span>
+                <Clock className="mr-3 text-primary" size={24} />
                 Hours
               </CardTitle>
             </CardHeader>
@@ -92,8 +93,8 @@ const Contact = () => {
           <Card className="max-w-2xl mx-auto bg-gradient-to-br from-primary/20 via-background to-accent/20 border-2 border-primary/20 backdrop-blur-lg shadow-2xl hover:shadow-primary/20 transition-all duration-500">
             <CardContent className="p-10">
               <div className="mb-6">
-                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-2xl shadow-lg">
-                  💊
+                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-lg">
+                  <Pill size={32} className="text-white" />
                 </div>
               </div>
               <h3 className="text-3xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-4">
