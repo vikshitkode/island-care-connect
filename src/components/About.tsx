@@ -1,14 +1,14 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Users } from "lucide-react";
+import { Users, Pill, Stethoscope, FlaskConical, HeartPulse, Clipboard, Shield } from "lucide-react";
 
 const About = () => {
   const teamMembers = [
-    { name: "Dr. Sarah Johnson", role: "Licensed Pharmacist", image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=150&h=150&fit=crop&crop=face" },
-    { name: "Michael Chen", role: "Certified Technician", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=150&h=150&fit=crop&crop=face" },
-    { name: "Jennifer Davis", role: "Certified Technician", image: "https://images.unsplash.com/photo-1594824475952-b0b8b0b8a14a?w=150&h=150&fit=crop&crop=face" },
-    { name: "Robert Martinez", role: "Licensed Pharmacist", image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=150&h=150&fit=crop&crop=face" },
-    { name: "Amanda Wilson", role: "Certified Technician", image: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=150&h=150&fit=crop&crop=face" },
-    { name: "David Thompson", role: "Certified Technician", image: "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=150&h=150&fit=crop&crop=face" }
+    { name: "Alex Rodriguez", role: "Licensed Pharmacist", icon: Pill },
+    { name: "Taylor Kim", role: "Certified Technician", icon: Stethoscope },
+    { name: "Jordan Smith", role: "Certified Technician", icon: FlaskConical },
+    { name: "Casey Brown", role: "Licensed Pharmacist", icon: HeartPulse },
+    { name: "Morgan Davis", role: "Certified Technician", icon: Clipboard },
+    { name: "Riley Johnson", role: "Certified Technician", icon: Shield }
   ];
 
   return (
@@ -57,20 +57,21 @@ const About = () => {
           <h3 className="text-3xl font-bold text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-12">Our Expert Team</h3>
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary/5 via-background to-accent/5 p-8">
             <div className="flex animate-[slide-left_25s_linear_infinite] space-x-12">
-              {[...teamMembers, ...teamMembers].map((member, index) => (
-                <div key={index} className="flex-shrink-0 text-center group">
-                  <div className="relative">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-0 group-hover:opacity-75 transition duration-300"></div>
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
-                      className="relative w-32 h-32 rounded-full mx-auto mb-4 object-cover border-2 border-primary/20 shadow-lg group-hover:scale-110 transition-transform duration-300"
-                    />
+              {[...teamMembers, ...teamMembers].map((member, index) => {
+                const IconComponent = member.icon;
+                return (
+                  <div key={index} className="flex-shrink-0 text-center group">
+                    <div className="relative">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-0 group-hover:opacity-75 transition duration-300"></div>
+                      <div className="relative w-32 h-32 rounded-full mx-auto mb-4 bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-primary/20 shadow-lg group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                        <IconComponent size={48} className="text-primary group-hover:text-accent transition-colors duration-300" />
+                      </div>
+                    </div>
+                    <h4 className="font-semibold text-foreground text-sm mb-1">{member.name}</h4>
+                    <p className="text-xs text-muted-foreground">{member.role}</p>
                   </div>
-                  <h4 className="font-semibold text-foreground text-sm mb-1">{member.name}</h4>
-                  <p className="text-xs text-muted-foreground">{member.role}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
