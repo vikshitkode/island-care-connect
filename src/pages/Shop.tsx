@@ -12,7 +12,7 @@ const Shop = () => {
       name: "Nordic Naturals Ultimate Omega",
       description: "High-potency omega-3 fish oil for heart and brain health",
       price: "$39.95",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=400&h=300",
       rating: 4.8,
       category: "Heart Health",
       featured: true
@@ -22,7 +22,7 @@ const Shop = () => {
       name: "Nordic Naturals Vitamin D3",
       description: "High-quality vitamin D3 for immune system support",
       price: "$24.95",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=400&h=300",
       rating: 4.9,
       category: "Immune Support",
       featured: true
@@ -32,7 +32,7 @@ const Shop = () => {
       name: "Nordic Naturals ProOmega",
       description: "Professional-strength omega-3 formula",
       price: "$49.95",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=400&h=300",
       rating: 4.7,
       category: "Brain Health",
       featured: true
@@ -45,7 +45,7 @@ const Shop = () => {
       name: "Tylenol Extra Strength",
       description: "Pain reliever and fever reducer",
       price: "$12.99",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=400&h=300",
       rating: 4.5,
       category: "Pain Relief"
     },
@@ -54,7 +54,7 @@ const Shop = () => {
       name: "Advil Liqui-Gels",
       description: "Fast-acting ibuprofen for pain and inflammation",
       price: "$14.99",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1550572017-edd951aa8f72?auto=format&fit=crop&w=400&h=300",
       rating: 4.6,
       category: "Pain Relief"
     },
@@ -63,7 +63,7 @@ const Shop = () => {
       name: "Claritin 24-Hour",
       description: "Non-drowsy allergy relief",
       price: "$19.99",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1585435557343-3b092031d8ec?auto=format&fit=crop&w=400&h=300",
       rating: 4.4,
       category: "Allergy Relief"
     },
@@ -72,7 +72,7 @@ const Shop = () => {
       name: "Pepto-Bismol",
       description: "Upset stomach and diarrhea relief",
       price: "$9.99",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=400&h=300",
       rating: 4.3,
       category: "Digestive Health"
     },
@@ -81,7 +81,7 @@ const Shop = () => {
       name: "Mucinex DM",
       description: "Cough suppressant and expectorant",
       price: "$16.99",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1550572017-edd951aa8f72?auto=format&fit=crop&w=400&h=300",
       rating: 4.5,
       category: "Cold & Flu"
     },
@@ -90,7 +90,7 @@ const Shop = () => {
       name: "Zyrtec 24-Hour",
       description: "Allergy relief tablets",
       price: "$21.99",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1585435557343-3b092031d8ec?auto=format&fit=crop&w=400&h=300",
       rating: 4.7,
       category: "Allergy Relief"
     }
@@ -184,9 +184,13 @@ const Shop = () => {
       <section className="py-16 bg-gradient-to-br from-background to-primary/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Featured: Nordic Naturals
-            </h2>
+            <div className="flex justify-center mb-6">
+              <img 
+                src="/lovable-uploads/a501b7a0-8f61-41c1-b038-bf4f563b3e19.png" 
+                alt="Nordic Naturals Logo" 
+                className="h-16 w-auto"
+              />
+            </div>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Premium omega-3 supplements and vitamins from the most trusted name in fish oil
             </p>
