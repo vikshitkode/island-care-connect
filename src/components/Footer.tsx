@@ -1,4 +1,5 @@
 import { Phone, MapPin, Mail, Pill, Users, PhoneCall, RotateCcw } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -10,13 +11,13 @@ const Footer = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
-            <div className="mb-6 group">
+            <Link to="/" className="mb-6 group inline-block">
               <img 
                 src="/lovable-uploads/30dba14e-68dd-4b60-a1bd-3a1fcee0cbfc.png" 
                 alt="Mercer Island Pharmacy" 
                 className="h-16 w-auto mb-6 drop-shadow-lg group-hover:scale-105 transition-transform duration-300"
               />
-            </div>
+            </Link>
             <p className="text-white/90 leading-relaxed mb-6 text-lg">
               Your trusted neighborhood pharmacy providing personalized care 
               and comprehensive health services since 1998.
