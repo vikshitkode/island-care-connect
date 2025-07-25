@@ -25,7 +25,7 @@ const Hero = () => {
           <img 
             src="/lovable-uploads/fd933d4c-e5df-48f8-a99f-7236c85e8509.png" 
             alt="Mercer Island Pharmacy" 
-            className="w-auto h-32 md:h-40 mx-auto mb-6 drop-shadow-2xl"
+            className="w-auto h-32 md:h-40 mx-auto mb-6 drop-shadow-2xl bg-white/90 backdrop-blur-sm rounded-2xl p-4 border border-white/20"
           />
         </div>
         
