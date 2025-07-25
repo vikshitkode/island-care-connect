@@ -36,12 +36,6 @@ const Services = () => {
       route: "/services/health-screenings"
     },
     {
-      title: "Specialty Medications",
-      description: "Expert handling of complex medications requiring special storage and administration.",
-      icon: "🧬",
-      route: "/services/specialty-medications"
-    },
-    {
       title: "Wellness Consultations",
       description: "One-on-one consultations for medication questions and health concerns.",
       icon: "💬",

@@ -10,7 +10,7 @@ import FreeDelivery from "./pages/services/FreeDelivery";
 import MedicationTherapy from "./pages/services/MedicationTherapy";
 import Immunizations from "./pages/services/Immunizations";
 import HealthScreenings from "./pages/services/HealthScreenings";
-import SpecialtyMedications from "./pages/services/SpecialtyMedications";
+
 import WellnessConsultations from "./pages/services/WellnessConsultations";
 
 const queryClient = new QueryClient();
@@ -28,7 +28,7 @@ const App = () => (
           <Route path="/services/medication-therapy" element={<MedicationTherapy />} />
           <Route path="/services/immunizations" element={<Immunizations />} />
           <Route path="/services/health-screenings" element={<HealthScreenings />} />
-          <Route path="/services/specialty-medications" element={<SpecialtyMedications />} />
+          
           <Route path="/services/wellness-consultations" element={<WellnessConsultations />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
