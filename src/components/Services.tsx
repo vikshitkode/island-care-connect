@@ -50,31 +50,47 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Our Services</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+    <section id="services" className="py-24 bg-gradient-to-br from-background via-secondary/20 to-accent/5 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute top-10 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-20">
+          <div className="inline-block mb-6">
+            <span className="text-6xl">🏥</span>
+          </div>
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6">
+            Our Services
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Comprehensive pharmacy services designed to support your health and wellness journey
           </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mt-6 rounded-full"></div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="hover:shadow-lg transition-all duration-300 bg-card border-border cursor-pointer hover:scale-105"
+              className="group bg-card/80 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-500 cursor-pointer hover:shadow-xl hover:-translate-y-2 relative overflow-hidden"
               onClick={() => navigate(service.route)}
             >
-              <CardHeader className="text-center pb-4">
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <CardTitle className="text-xl text-foreground">{service.title}</CardTitle>
+              {/* Card gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <CardHeader className="text-center pb-4 relative z-10">
+                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
+                <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">{service.title}</CardTitle>
               </CardHeader>
-              <CardContent>
-                <CardDescription className="text-center text-muted-foreground leading-relaxed">
+              <CardContent className="relative z-10">
+                <CardDescription className="text-center text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-300">
                   {service.description}
                 </CardDescription>
               </CardContent>
+              
+              {/* Hover indicator */}
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </Card>
           ))}
         </div>

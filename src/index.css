@@ -45,8 +45,12 @@ All colors MUST be HSL.
     --pharmacy-green-light: 160 40% 85%;
     --gradient-hero: linear-gradient(135deg, hsl(var(--pharmacy-blue)), hsl(var(--pharmacy-green)));
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 15% 98%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary)/50));
     --shadow-soft: 0 4px 20px -4px hsl(var(--pharmacy-blue) / 0.15);
     --shadow-card: 0 8px 30px -8px hsl(var(--pharmacy-blue) / 0.2);
+    --shadow-elegant: 0 10px 40px -10px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 50px hsl(var(--accent) / 0.4);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
