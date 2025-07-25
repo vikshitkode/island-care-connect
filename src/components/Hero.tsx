@@ -23,7 +23,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className="mb-8 animate-fade-in">
           <img 
-            src="/lovable-uploads/30dba14e-68dd-4b60-a1bd-3a1fcee0cbfc.png" 
+            src="/lovable-uploads/fdd9bf3a-3127-4be6-a6d4-52796a412642.png" 
             alt="Mercer Island Pharmacy" 
             className="w-auto h-32 md:h-40 mx-auto mb-6 drop-shadow-2xl"
           />

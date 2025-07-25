@@ -8,7 +8,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-3 group">
           <img 
-            src="/lovable-uploads/30dba14e-68dd-4b60-a1bd-3a1fcee0cbfc.png" 
+            src="/lovable-uploads/fdd9bf3a-3127-4be6-a6d4-52796a412642.png" 
             alt="Mercer Island Pharmacy Logo" 
             className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
           />
