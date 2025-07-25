@@ -64,24 +64,24 @@ const About = () => {
 
         {/* Stats and Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card className="bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20 text-center">
+          <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20 text-center hover:shadow-lg transition-shadow">
             <CardContent className="p-8">
               <div className="text-4xl font-bold text-primary mb-2">3</div>
-              <div className="text-sm text-muted-foreground">Licensed Pharmacists</div>
+              <div className="text-sm text-muted-foreground font-medium">Licensed Pharmacists</div>
             </CardContent>
           </Card>
           
-          <Card className="bg-gradient-to-br from-secondary/5 to-secondary/10 border-secondary/20 text-center">
+          <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20 text-center hover:shadow-lg transition-shadow">
             <CardContent className="p-8">
-              <div className="text-4xl font-bold text-secondary mb-2">6</div>
-              <div className="text-sm text-muted-foreground">Certified Technicians</div>
+              <div className="text-4xl font-bold text-primary mb-2">6</div>
+              <div className="text-sm text-muted-foreground font-medium">Certified Technicians</div>
             </CardContent>
           </Card>
           
-          <Card className="bg-gradient-to-br from-accent/5 to-accent/10 border-accent/20 text-center">
+          <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20 text-center hover:shadow-lg transition-shadow">
             <CardContent className="p-8">
-              <div className="text-4xl font-bold text-accent mb-2">25+</div>
-              <div className="text-sm text-muted-foreground">Years of Service</div>
+              <div className="text-4xl font-bold text-primary mb-2">25+</div>
+              <div className="text-sm text-muted-foreground font-medium">Years of Service</div>
             </CardContent>
           </Card>
         </div>
