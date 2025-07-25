@@ -46,8 +46,7 @@ const Hero = () => {
           </Button>
           <Button 
             size="lg" 
-            variant="outline"
-            className="border-2 border-white/80 text-white hover:bg-white hover:text-primary hover:border-white transition-all duration-300 hover:-translate-y-1 px-8 py-4 text-lg font-medium inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm"
+            className="bg-white text-primary hover:bg-white/90 hover:text-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 px-8 py-4 text-lg font-medium inline-flex items-center gap-2"
           >
             <RotateCcw size={20} /> Transfer Prescription
           </Button>
