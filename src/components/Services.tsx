@@ -1,41 +1,51 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const Services = () => {
+  const navigate = useNavigate();
+  
   const services = [
     {
       title: "Prescription Services",
       description: "Fast, accurate prescription filling with competitive pricing and insurance coordination.",
-      icon: "💊"
+      icon: "💊",
+      route: "/services/prescription-services"
     },
     {
       title: "Free Delivery",
       description: "Convenient free delivery service to your home or office within Mercer Island.",
-      icon: "🚚"
+      icon: "🚚",
+      route: "/services/free-delivery"
     },
     {
       title: "Medication Therapy Management",
       description: "Comprehensive medication reviews to optimize your therapy and prevent drug interactions.",
-      icon: "📋"
+      icon: "📋",
+      route: "/services/medication-therapy"
     },
     {
       title: "Immunizations",
       description: "Full range of vaccines including flu shots, COVID-19, and travel immunizations.",
-      icon: "💉"
+      icon: "💉",
+      route: "/services/immunizations"
     },
     {
       title: "Health Screenings",
       description: "Blood pressure monitoring, cholesterol testing, and diabetes management support.",
-      icon: "🩺"
+      icon: "🩺",
+      route: "/services/health-screenings"
     },
     {
       title: "Specialty Medications",
       description: "Expert handling of complex medications requiring special storage and administration.",
-      icon: "🧬"
+      icon: "🧬",
+      route: "/services/specialty-medications"
     },
     {
       title: "Wellness Consultations",
       description: "One-on-one consultations for medication questions and health concerns.",
-      icon: "💬"
+      icon: "💬",
+      route: "/services/wellness-consultations"
     }
   ];
 
@@ -51,7 +61,11 @@ const Services = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="hover:shadow-lg transition-all duration-300 bg-card border-border">
+            <Card 
+              key={index} 
+              className="hover:shadow-lg transition-all duration-300 bg-card border-border cursor-pointer hover:scale-105"
+              onClick={() => navigate(service.route)}
+            >
               <CardHeader className="text-center pb-4">
                 <div className="text-4xl mb-4">{service.icon}</div>
                 <CardTitle className="text-xl text-foreground">{service.title}</CardTitle>
