@@ -14,10 +14,11 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          Mercer Island
-          <span className="block text-4xl md:text-6xl text-pharmacy-blue-light">Pharmacy</span>
-        </h1>
+        <img 
+          src="/lovable-uploads/30dba14e-68dd-4b60-a1bd-3a1fcee0cbfc.png" 
+          alt="Mercer Island Pharmacy" 
+          className="w-auto h-32 md:h-40 mx-auto mb-6"
+        />
         
         <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-white/90">
           Your trusted neighborhood pharmacy providing personalized care, expert advice, 
