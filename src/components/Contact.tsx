@@ -29,12 +29,12 @@ const Contact = () => {
             <CardContent>
               <p className="text-muted-foreground leading-relaxed">
                 <a 
-                  href="https://maps.google.com/?q=2701+76th+Ave+SE,+Mercer+Island,+WA+98040" 
+                  href="https://maps.google.com/?q=2703+76th+Ave+SE,+Mercer+Island,+WA+98040" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors cursor-pointer"
                 >
-                  2701 76th Ave SE<br />
+                  2703 76th Ave SE<br />
                   Mercer Island, WA 98040
                 </a><br />
                 <span className="text-sm text-pharmacy-blue">Easy parking available</span>
