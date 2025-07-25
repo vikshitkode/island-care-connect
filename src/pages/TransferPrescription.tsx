@@ -45,7 +45,8 @@ const TransferPrescription: React.FC = () => {
     e.preventDefault();
     
     // Validate required fields
-    if (!formData.firstName || !formData.lastName || !formData.phone || !formData.currentPharmacy) {
+    if (!formData.firstName || !formData.lastName || !formData.phone || !formData.dateOfBirth || 
+        !formData.currentPharmacy || !formData.currentPharmacyPhone || !formData.medications) {
       toast({
         title: "Missing Information",
         description: "Please fill in all required fields.",
@@ -208,13 +209,14 @@ const TransferPrescription: React.FC = () => {
                         </div>
                       </div>
                       <div>
-                        <Label htmlFor="dateOfBirth">Date of Birth</Label>
+                        <Label htmlFor="dateOfBirth">Date of Birth <span className="text-red-500">*</span></Label>
                         <Input
                           id="dateOfBirth"
                           name="dateOfBirth"
                           type="date"
                           value={formData.dateOfBirth}
                           onChange={handleInputChange}
+                          required
                           className="mt-1"
                         />
                       </div>
@@ -239,13 +241,14 @@ const TransferPrescription: React.FC = () => {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="currentPharmacyPhone">Current Pharmacy Phone Number</Label>
+                        <Label htmlFor="currentPharmacyPhone">Current Pharmacy Phone Number <span className="text-red-500">*</span></Label>
                         <Input
                           id="currentPharmacyPhone"
                           name="currentPharmacyPhone"
                           type="tel"
                           value={formData.currentPharmacyPhone}
                           onChange={handleInputChange}
+                          required
                           className="mt-1"
                         />
                       </div>
@@ -258,14 +261,15 @@ const TransferPrescription: React.FC = () => {
                         Medication Information
                       </h3>
                       <div>
-                        <Label htmlFor="medications">Medications to Transfer</Label>
+                        <Label htmlFor="medications">Medications to Transfer <span className="text-red-500">*</span></Label>
                         <Textarea
                           id="medications"
                           name="medications"
                           value={formData.medications}
                           onChange={handleInputChange}
-                          placeholder="List the medications you'd like to transfer (optional - we can transfer all active prescriptions)"
+                          placeholder="List the medications you'd like to transfer (or write 'All active prescriptions')"
                           rows={4}
+                          required
                           className="mt-1"
                         />
                       </div>
