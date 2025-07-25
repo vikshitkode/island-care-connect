@@ -33,13 +33,13 @@ const Contact = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
           <Card className="bg-card/80 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
-            <CardHeader className="pb-4 text-center">
-              <CardTitle className="flex items-center justify-center text-foreground group-hover:text-primary transition-colors">
+            <CardHeader className="pb-4">
+              <CardTitle className="flex items-center text-foreground group-hover:text-primary transition-colors">
                 <MapPin className="mr-3 text-primary" size={24} />
                 Location
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-center">
+            <CardContent>
               <p className="text-muted-foreground leading-relaxed">
                 <a 
                   href="https://maps.google.com/?q=2703+76th+Ave+SE,+Mercer+Island,+WA+98040" 
@@ -56,13 +56,13 @@ const Contact = () => {
           </Card>
           
           <Card className="bg-card/80 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
-            <CardHeader className="pb-4 text-center">
-              <CardTitle className="flex items-center justify-center text-foreground group-hover:text-primary transition-colors">
+            <CardHeader className="pb-4">
+              <CardTitle className="flex items-center text-foreground group-hover:text-primary transition-colors">
                 <Phone className="mr-3 text-primary" size={24} />
                 Contact
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-center">
+            <CardContent>
               <p className="text-muted-foreground leading-relaxed">
                 <span className="font-medium">Phone:</span> <a href="tel:+12066473784" className="hover:text-foreground transition-colors">(206) 647-3784</a><br />
                 <span className="font-medium">Fax:</span> (206) 647-3783<br />
@@ -72,8 +72,8 @@ const Contact = () => {
           </Card>
           
           <Card className="bg-card/80 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
-            <CardHeader className="pb-4 text-center">
-              <CardTitle className="flex items-center justify-center text-foreground group-hover:text-primary transition-colors">
+            <CardHeader className="pb-4">
+              <CardTitle className="flex items-center text-foreground group-hover:text-primary transition-colors">
                 <Clock className="mr-3 text-primary" size={24} />
                 Hours
               </CardTitle>
