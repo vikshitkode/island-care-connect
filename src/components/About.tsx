@@ -40,7 +40,7 @@ const About = () => {
             <img 
               src="/lovable-uploads/c2c85c65-849b-4999-a522-0a45ebd293e9.png" 
               alt="Head Pharmacist" 
-              className="relative w-48 h-48 rounded-full mx-auto mb-4 object-cover border-4 border-white shadow-2xl group-hover:scale-105 transition-transform duration-300"
+              className="relative w-48 h-48 rounded-full mx-auto mb-4 object-cover object-center border-4 border-white shadow-2xl group-hover:scale-105 transition-transform duration-300"
             />
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
               <div className="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg">
