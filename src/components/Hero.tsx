@@ -65,6 +65,10 @@ const Hero = () => {
             <div className="text-white/80 font-medium">Online Refills</div>
           </div>
           <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+            <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Expert</div>
+            <div className="text-white/80 font-medium">Healthcare Services</div>
+          </div>
+          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
             <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">5000+</div>
             <div className="text-white/80 font-medium">Happy Customers</div>
           </div>
