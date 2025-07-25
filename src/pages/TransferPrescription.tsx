@@ -225,38 +225,6 @@ const TransferPrescription: React.FC = () => {
                   </CardContent>
                 </Card>
               </div>
-
-              {/* Additional Info */}
-              <div className="mt-16 text-center">
-                <Card className="bg-gradient-to-br from-secondary/10 via-background to-secondary/5 border-secondary/20 backdrop-blur-sm">
-                  <CardContent className="pt-6">
-                    <h3 className="text-lg font-semibold mb-4">What We Need for Your Transfer</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-                      <div className="flex items-start gap-3">
-                        <User className="text-primary mt-1" size={16} />
-                        <div>
-                          <p className="font-medium">Your Information</p>
-                          <p className="text-muted-foreground">Name, phone, date of birth</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Building2 className="text-primary mt-1" size={16} />
-                        <div>
-                          <p className="font-medium">Current Pharmacy</p>
-                          <p className="text-muted-foreground">Name, address, and phone number</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Pill className="text-primary mt-1" size={16} />
-                        <div>
-                          <p className="font-medium">Medications</p>
-                          <p className="text-muted-foreground">Which prescriptions to transfer</p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
             </div>
           ) : (
             // Form Section
