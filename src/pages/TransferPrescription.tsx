@@ -179,9 +179,9 @@ const TransferPrescription: React.FC = () => {
                         size="lg"
                         className="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 py-3 text-lg"
                       >
-                        <a href="tel:+12066226094" className="inline-flex items-center gap-2">
+                        <a href="tel:+12066473784" className="inline-flex items-center gap-2">
                           <PhoneCall size={20} />
-                          Call (206) 622-6094
+                          Call (206) 647-3784
                         </a>
                       </Button>
                     </div>
@@ -439,9 +439,9 @@ const TransferPrescription: React.FC = () => {
                       variant="outline" 
                       className="w-full border-accent/60 text-accent hover:bg-accent hover:text-white transition-all duration-300"
                     >
-                      <a href="tel:+12066226094" className="inline-flex items-center gap-2">
+                      <a href="tel:+12066473784" className="inline-flex items-center gap-2">
                         <Phone size={16} />
-                        Call (206) 622-6094
+                        Call (206) 647-3784
                       </a>
                     </Button>
                   </CardContent>

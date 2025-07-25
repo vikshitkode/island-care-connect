@@ -28,7 +28,7 @@ const Header = () => {
             asChild
             className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
           >
-            <a href="tel:+12066226094" className="inline-flex items-center gap-2">
+            <a href="tel:+12066473784" className="inline-flex items-center gap-2">
               <Pill size={16} /> Refill Prescription
             </a>
           </Button>

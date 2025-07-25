@@ -64,7 +64,8 @@ const Contact = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-relaxed">
-                <span className="font-medium">Phone:</span> (206) 622-6094<br />
+                <span className="font-medium">Phone:</span> (206) 647-3784<br />
+                <span className="font-medium">Fax:</span> (206) 647-3783<br />
                 <span className="font-medium">Email:</span> mercerislandpharmacy@gmail.com
               </p>
             </CardContent>
@@ -110,7 +111,7 @@ const Contact = () => {
                   asChild
                   className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 >
-                  <a href="tel:+12066226094">Order Refill by Phone</a>
+                  <a href="tel:+12066473784">Order Refill by Phone</a>
                 </Button>
                 <Button 
                   asChild

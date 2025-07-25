@@ -44,7 +44,7 @@ const Hero = () => {
             size="lg" 
             className="bg-white text-primary hover:bg-white/90 hover:text-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 px-8 py-4 text-lg font-medium"
           >
-            <a href="tel:+12066226094" className="inline-flex items-center gap-2">
+            <a href="tel:+12066473784" className="inline-flex items-center gap-2">
               <Pill size={20} /> Refill Prescription
             </a>
           </Button>

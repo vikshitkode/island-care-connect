@@ -39,7 +39,7 @@ const Footer = () => {
             <ul className="space-y-4 text-white/80">
               <li className="flex items-center space-x-2">
                 <Phone size={16} />
-                <span className="hover:text-white transition-colors cursor-pointer">(206) 622-6094</span>
+                <span className="hover:text-white transition-colors cursor-pointer">(206) 647-3784</span>
               </li>
               <li>
                 <div className="flex items-start space-x-2">
