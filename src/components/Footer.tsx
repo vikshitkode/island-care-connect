@@ -68,10 +68,8 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-white/20 mt-12 pt-8 text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 inline-block">
-            <p className="text-white/80">&copy; 2024 Mercer Island Pharmacy. All rights reserved.</p>
-          </div>
+        <div className="border-t border-white/20 mt-8 pt-4 text-center">
+          <p className="text-white/70 text-sm">&copy; 2024 Mercer Island Pharmacy. All rights reserved.</p>
         </div>
       </div>
     </footer>
