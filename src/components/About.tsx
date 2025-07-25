@@ -38,7 +38,7 @@ const About = () => {
           <div className="inline-block relative group">
             <div className="absolute -inset-2 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
             <img 
-              src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=200&h=200&fit=crop&crop=face" 
+              src="/lovable-uploads/c2c85c65-849b-4999-a522-0a45ebd293e9.png" 
               alt="Head Pharmacist" 
               className="relative w-48 h-48 rounded-full mx-auto mb-4 object-cover border-4 border-white shadow-2xl group-hover:scale-105 transition-transform duration-300"
             />
