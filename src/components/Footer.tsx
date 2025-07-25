@@ -20,7 +20,7 @@ const Footer = () => {
             </Link>
             <p className="text-white/90 leading-relaxed mb-6 text-lg">
               Your trusted neighborhood pharmacy providing personalized care 
-              and comprehensive health services since 1998.
+              and comprehensive health services.
             </p>
           </div>
           
