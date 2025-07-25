@@ -155,30 +155,23 @@ const Shop = () => {
   const displayedOTCProducts = showAllOTC ? otcProducts : otcProducts.slice(0, 6);
 
   const ProductCard = ({ product, featured = false }: { product: any, featured?: boolean }) => (
-    <Card className={`group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${featured ? 'ring-2 ring-primary/30 bg-gradient-to-br from-background to-primary/5 hover:ring-primary/50' : 'hover:shadow-primary/10'} animate-fade-in`}>
+    <Card className={`${featured ? 'ring-2 ring-primary/30 bg-gradient-to-br from-background to-primary/5' : ''}`}>
       <CardHeader className="pb-3">
         <div className="relative">
           <img 
             src={product.image} 
             alt={product.name}
-            className="w-full h-48 object-cover rounded-lg bg-muted transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-48 object-cover rounded-lg bg-muted"
           />
           {featured && (
-            <Badge className="absolute top-2 left-2 bg-gradient-to-r from-primary to-accent text-white animate-pulse">
+            <Badge className="absolute top-2 left-2 bg-gradient-to-r from-primary to-accent text-white">
               Featured
             </Badge>
           )}
-          <Button 
-            size="icon" 
-            variant="ghost" 
-            className="absolute top-2 right-2 bg-background/80 backdrop-blur-sm hover:bg-background opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
-          >
-            <Heart className="h-4 w-4 hover:text-red-500 transition-colors duration-200" />
-          </Button>
         </div>
         <div className="space-y-2">
-          <CardTitle className="text-lg line-clamp-2 group-hover:text-primary transition-colors duration-300">{product.name}</CardTitle>
-          <CardDescription className="line-clamp-2 group-hover:text-foreground transition-colors duration-300">{product.description}</CardDescription>
+          <CardTitle className="text-lg line-clamp-2">{product.name}</CardTitle>
+          <CardDescription className="line-clamp-2">{product.description}</CardDescription>
           <div className="flex items-center gap-2">
             <div className="flex items-center">
               {[...Array(5)].map((_, i) => (
@@ -194,11 +187,8 @@ const Shop = () => {
         </div>
       </CardHeader>
       <CardContent className="pt-0">
-        <div className="flex items-center justify-between">
-          <span className="text-2xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">{product.price}</span>
-          <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white hover:scale-105 transition-all duration-300 hover:shadow-lg">
-            Visit Store
-          </Button>
+        <div className="flex items-center justify-center">
+          <span className="text-2xl font-bold text-primary">{product.price}</span>
         </div>
       </CardContent>
     </Card>
@@ -209,11 +199,11 @@ const Shop = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary via-primary/90 to-accent overflow-hidden animate-fade-in">
+      <section className="relative py-20 bg-gradient-to-br from-primary via-primary/90 to-accent overflow-hidden">
         <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-10"></div>
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent animate-scale-in">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
               Your Health Store
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
@@ -254,15 +244,13 @@ const Shop = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProducts.map((product, index) => (
-              <div key={product.id} className="animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
-                <ProductCard product={product} featured={true} />
-              </div>
+            {featuredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} featured={true} />
             ))}
           </div>
           
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white hover:scale-105 transition-all duration-300 hover:shadow-xl">
+            <Button size="lg" className="bg-gradient-to-r from-primary to-accent text-white">
               Visit Our Store for Nordic Naturals
             </Button>
           </div>
@@ -280,10 +268,8 @@ const Shop = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayedOTCProducts.map((product, index) => (
-              <div key={product.id} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <ProductCard product={product} />
-              </div>
+            {displayedOTCProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
           
@@ -291,7 +277,7 @@ const Shop = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-primary text-primary hover:bg-primary hover:text-white hover:scale-105 transition-all duration-300 hover:shadow-lg"
+              className="border-primary text-primary"
               onClick={() => setShowAllOTC(!showAllOTC)}
             >
               {showAllOTC ? <ChevronUp className="h-4 w-4 mr-2" /> : <ChevronDown className="h-4 w-4 mr-2" />}
@@ -313,14 +299,8 @@ const Shop = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 hover:shadow-lg font-semibold px-8 py-3"
-            >
-              Visit Our Store
-            </Button>
-            <Button 
-              size="lg" 
               variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-primary hover:scale-105 transition-all duration-300 hover:shadow-lg font-semibold px-8 py-3"
+              className="border-2 border-white text-white font-semibold px-8 py-3"
             >
               <a href="tel:+12066473784" className="flex items-center">Call Us Now</a>
             </Button>
