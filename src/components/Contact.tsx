@@ -31,7 +31,7 @@ const Contact = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-6 rounded-full"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
           <Card className="bg-card/80 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center text-foreground group-hover:text-primary transition-colors">
@@ -71,7 +71,7 @@ const Contact = () => {
             </CardContent>
           </Card>
           
-          <Card className="bg-card/80 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group md:col-span-2 lg:col-span-1">
+          <Card className="bg-card/80 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center text-foreground group-hover:text-primary transition-colors">
                 <Clock className="mr-3 text-primary" size={24} />
