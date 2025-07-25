@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Star, Heart, Brain, Shield, Clock } from "lucide-react";
+import { useState } from "react";
 
 const Shop = () => {
   const featuredProducts = [
@@ -93,8 +94,65 @@ const Shop = () => {
       image: "https://images.unsplash.com/photo-1585435557343-3b092031d8ec?auto=format&fit=crop&w=400&h=300",
       rating: 4.7,
       category: "Allergy Relief"
+    },
+    {
+      id: 10,
+      name: "Tums Ultra Strength",
+      description: "Fast-acting antacid for heartburn relief",
+      price: "$8.99",
+      image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=400&h=300",
+      rating: 4.2,
+      category: "Digestive Health"
+    },
+    {
+      id: 11,
+      name: "Benadryl Allergy",
+      description: "Antihistamine for allergic reactions",
+      price: "$11.99",
+      image: "https://images.unsplash.com/photo-1585435557343-3b092031d8ec?auto=format&fit=crop&w=400&h=300",
+      rating: 4.4,
+      category: "Allergy Relief"
+    },
+    {
+      id: 12,
+      name: "Robitussin DM",
+      description: "Cough suppressant and expectorant",
+      price: "$13.99",
+      image: "https://images.unsplash.com/photo-1550572017-edd951aa8f72?auto=format&fit=crop&w=400&h=300",
+      rating: 4.3,
+      category: "Cold & Flu"
+    },
+    {
+      id: 13,
+      name: "Aspirin Low Dose",
+      description: "Daily heart health support",
+      price: "$7.99",
+      image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=400&h=300",
+      rating: 4.6,
+      category: "Heart Health"
+    },
+    {
+      id: 14,
+      name: "Sudafed PE",
+      description: "Nasal congestion relief",
+      price: "$12.49",
+      image: "https://images.unsplash.com/photo-1550572017-edd951aa8f72?auto=format&fit=crop&w=400&h=300",
+      rating: 4.1,
+      category: "Cold & Flu"
+    },
+    {
+      id: 15,
+      name: "Dramamine Motion Sickness",
+      description: "Prevention and treatment of motion sickness",
+      price: "$10.99",
+      image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=400&h=300",
+      rating: 4.5,
+      category: "Digestive Health"
     }
   ];
+
+  const [showAllOTC, setShowAllOTC] = useState(false);
+  const displayedOTCProducts = showAllOTC ? otcProducts : otcProducts.slice(0, 6);
 
   const ProductCard = ({ product, featured = false }: { product: any, featured?: boolean }) => (
     <Card className={`group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${featured ? 'ring-2 ring-primary/20 bg-gradient-to-br from-background to-primary/5' : ''}`}>
@@ -222,15 +280,20 @@ const Shop = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {otcProducts.map((product) => (
+            {displayedOTCProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
           
           <div className="text-center mt-12">
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-primary text-primary hover:bg-primary hover:text-white"
+              onClick={() => setShowAllOTC(!showAllOTC)}
+            >
               <MapPin className="h-4 w-4 mr-2" />
-              Visit Store for OTC Medications
+              {showAllOTC ? "Show Less" : "Browse More OTC Medications"}
             </Button>
           </div>
         </div>
