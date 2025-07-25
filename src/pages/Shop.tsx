@@ -200,7 +200,6 @@ const Shop = () => {
       
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-primary via-primary/90 to-accent overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-10"></div>
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
