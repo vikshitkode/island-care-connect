@@ -64,7 +64,7 @@ const Contact = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-relaxed">
-                <span className="font-medium">Phone:</span> (206) 647-3784<br />
+                <span className="font-medium">Phone:</span> <a href="tel:+12066473784" className="hover:text-foreground transition-colors">(206) 647-3784</a><br />
                 <span className="font-medium">Fax:</span> (206) 647-3783<br />
                 <span className="font-medium">Email:</span> mercerislandpharmacy@gmail.com
               </p>
