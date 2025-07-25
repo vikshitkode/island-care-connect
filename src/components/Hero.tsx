@@ -40,13 +40,14 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 animate-fade-in delay-500">
           <Button 
             size="lg" 
-            className="bg-white/10 backdrop-blur-md text-white border-2 border-white/30 hover:bg-white hover:text-primary px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl inline-flex items-center gap-2"
+            className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 px-8 py-4 text-lg font-medium inline-flex items-center gap-2"
           >
             <Pill size={20} /> Refill Prescription
           </Button>
           <Button 
             size="lg" 
-            className="bg-accent/90 text-white border-2 border-accent hover:bg-accent hover:scale-105 px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-2xl inline-flex items-center gap-2"
+            variant="outline"
+            className="bg-white/10 backdrop-blur-md text-white border-2 border-white/40 hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:border-transparent hover:-translate-y-1 px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-xl inline-flex items-center gap-2"
           >
             <RotateCcw size={20} /> Transfer Prescription
           </Button>
