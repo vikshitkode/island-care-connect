@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Star, Heart, Brain, Shield } from "lucide-react";
+import { MapPin, Star, Heart, Brain, Shield, Clock } from "lucide-react";
 
 const Shop = () => {
   const featuredProducts = [
@@ -139,8 +139,8 @@ const Shop = () => {
         <div className="flex items-center justify-between">
           <span className="text-2xl font-bold text-primary">{product.price}</span>
           <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white">
-            <ShoppingCart className="h-4 w-4 mr-2" />
-            Add to Cart
+            <MapPin className="h-4 w-4 mr-2" />
+            Visit Store
           </Button>
         </div>
       </CardContent>
@@ -160,19 +160,19 @@ const Shop = () => {
               Your Health Store
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
-              Quality over-the-counter medications and premium supplements for your wellness journey
+              Visit our store for quality over-the-counter medications and premium supplements
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-white/80">
+              <div className="flex items-center gap-2">
+                <Clock className="h-5 w-5" />
+                <span>In-Store Pickup</span>
+              </div>
               <div className="flex items-center gap-2">
                 <Shield className="h-5 w-5" />
                 <span>FDA Approved</span>
               </div>
               <div className="flex items-center gap-2">
                 <Heart className="h-5 w-5" />
-                <span>Trusted Quality</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Brain className="h-5 w-5" />
                 <span>Expert Guidance</span>
               </div>
             </div>
@@ -192,7 +192,7 @@ const Shop = () => {
               />
             </div>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Premium omega-3 supplements and vitamins from the most trusted name in fish oil
+              Premium omega-3 supplements and vitamins - available in-store
             </p>
           </div>
           
@@ -204,7 +204,8 @@ const Shop = () => {
           
           <div className="text-center mt-12">
             <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white">
-              View All Nordic Naturals Products
+              <MapPin className="h-4 w-4 mr-2" />
+              Visit Our Store for Nordic Naturals
             </Button>
           </div>
         </div>
@@ -216,7 +217,7 @@ const Shop = () => {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Over-the-Counter Medications</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Essential medications for common health needs, available without prescription
+              Essential medications for common health needs - visit our store to purchase
             </p>
           </div>
           
@@ -228,7 +229,8 @@ const Shop = () => {
           
           <div className="text-center mt-12">
             <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
-              Browse All OTC Products
+              <MapPin className="h-4 w-4 mr-2" />
+              Visit Store for OTC Medications
             </Button>
           </div>
         </div>
@@ -238,14 +240,15 @@ const Shop = () => {
       <section className="py-16 bg-gradient-to-r from-primary to-accent">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Need Help Choosing the Right Product?
+            Questions About Our Products?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Our pharmacists are here to help you find the best solutions for your health needs
+            Visit our store or call us - our pharmacists are here to help you find the best solutions
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
-              Speak with a Pharmacist
+              <MapPin className="h-4 w-4 mr-2" />
+              Visit Our Store
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
               <a href="tel:+12066473784">Call Us Now</a>
