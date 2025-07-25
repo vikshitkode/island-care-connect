@@ -4,12 +4,11 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-pharmacy-blue font-bold text-sm">M</span>
-              </div>
-              <h3 className="text-xl font-semibold">Mercer Island Pharmacy</h3>
-            </div>
+            <img 
+              src="/lovable-uploads/30dba14e-68dd-4b60-a1bd-3a1fcee0cbfc.png" 
+              alt="Mercer Island Pharmacy" 
+              className="h-16 w-auto mb-4"
+            />
             <p className="text-white/80 leading-relaxed mb-4">
               Your trusted neighborhood pharmacy providing personalized care 
               and comprehensive health services since 1998.
