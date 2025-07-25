@@ -44,12 +44,12 @@ const About = () => {
             />
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
               <div className="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg">
-                Head Pharmacist
+                Pharmacist
               </div>
             </div>
           </div>
           <h3 className="text-3xl font-semibold text-foreground mt-8 mb-3">Dr. James Mitchell</h3>
-          <p className="text-lg text-muted-foreground">25+ Years Experience • PharmD, RPh</p>
+          <p className="text-lg text-muted-foreground">15+ Years Experience • PharmD, RPh</p>
         </div>
 
         {/* Auto-scrolling Team Section */}
