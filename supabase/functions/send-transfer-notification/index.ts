@@ -5,7 +5,7 @@ import { Resend } from "npm:resend@2.0.0";
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
 const corsHeaders = {
-  "Access-Control-Allow-Origin": "https://nnlzoltcklkjpdaijxcu.supabase.co",
+  "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
     "authorization, x-client-info, apikey, content-type",
 };
@@ -65,15 +65,9 @@ const handler = async (req: Request): Promise<Response> => {
       <p><small>Submitted: ${new Date(record.created_at).toLocaleString()}</small></p>
     `;
 
-    // Get pharmacy email from environment variable for security
-    const pharmacyEmail = Deno.env.get("PHARMACY_EMAIL");
-    if (!pharmacyEmail) {
-      throw new Error("Pharmacy email not configured");
-    }
-
     const emailResponse = await resend.emails.send({
       from: "Pharmacy Notifications <notifications@resend.dev>",
-      to: [pharmacyEmail],
+      to: ["kodevikshit2000@gmail.com"], // Your pharmacy email
       subject: `New Transfer Request: ${record.first_name} ${record.last_name}`,
       html: emailHtml,
     });
@@ -89,14 +83,8 @@ const handler = async (req: Request): Promise<Response> => {
     });
   } catch (error: any) {
     console.error("Error in send-transfer-notification function:", error);
-    
-    // Don't expose internal error details to prevent information disclosure
-    const publicErrorMessage = error.message?.includes("Pharmacy email") 
-      ? "Configuration error - please contact support"
-      : "An error occurred processing your request";
-    
     return new Response(
-      JSON.stringify({ error: publicErrorMessage }),
+      JSON.stringify({ error: error.message }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, RotateCcw, User, Phone, Building2, Pill, FileText, PhoneCall, LogOut } from "lucide-react";
+import { ArrowLeft, RotateCcw, User, Phone, Building2, Pill, FileText, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -10,30 +10,24 @@ import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/hooks/useAuth";
-import { AuthForm } from "@/components/auth/AuthForm";
-import { transferRequestSchema, sanitizeHtml, type TransferRequestData } from "@/lib/validations";
-import { toast } from "sonner";
 
 const TransferPrescription: React.FC = () => {
-  const { user, loading, signOut } = useAuth();
+  const { toast } = useToast();
   const [showForm, setShowForm] = useState(false);
-  const [rateLimitCount, setRateLimitCount] = useState(0);
-  const [lastSubmission, setLastSubmission] = useState<number>(0);
   
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [formData, setFormData] = useState<TransferRequestData>({
-    first_name: "",
-    last_name: "",
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
     phone: "",
     email: "",
-    date_of_birth: "",
-    current_pharmacy: "",
-    current_pharmacy_phone: "",
+    dateOfBirth: "",
+    currentPharmacy: "",
+    currentPharmacyPhone: "",
     medications: "",
     notes: ""
   });
@@ -42,44 +36,23 @@ const TransferPrescription: React.FC = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    // Sanitize input to prevent XSS
-    const sanitizedValue = sanitizeHtml(value);
     setFormData(prev => ({
       ...prev,
-      [name]: sanitizedValue
+      [name]: value
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!user) {
-      toast.error("Please sign in to submit a transfer request.");
-      return;
-    }
-
-    // Rate limiting check
-    const now = Date.now();
-    const timeSinceLastSubmission = now - lastSubmission;
-    const RATE_LIMIT_WINDOW = 60000; // 1 minute
-    const MAX_REQUESTS = 3;
-
-    if (timeSinceLastSubmission < RATE_LIMIT_WINDOW && rateLimitCount >= MAX_REQUESTS) {
-      toast.error("Please wait before submitting another request.");
-      return;
-    }
-
-    // Reset rate limit counter if enough time has passed
-    if (timeSinceLastSubmission >= RATE_LIMIT_WINDOW) {
-      setRateLimitCount(0);
-    }
-
-    // Validate form data using Zod schema
-    try {
-      transferRequestSchema.parse(formData);
-    } catch (validationError: any) {
-      const firstError = validationError.errors?.[0];
-      toast.error(firstError?.message || "Please check your input and try again.");
+    // Validate required fields
+    if (!formData.firstName || !formData.lastName || !formData.phone || !formData.dateOfBirth || 
+        !formData.currentPharmacy || !formData.currentPharmacyPhone || !formData.medications) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive"
+      });
       return;
     }
 
@@ -90,14 +63,13 @@ const TransferPrescription: React.FC = () => {
       const { error } = await supabase
         .from('transfer_requests')
         .insert({
-          user_id: user.id,
-          first_name: formData.first_name,
-          last_name: formData.last_name,
+          first_name: formData.firstName,
+          last_name: formData.lastName,
           phone: formData.phone,
           email: formData.email || null,
-          date_of_birth: formData.date_of_birth || null,
-          current_pharmacy: formData.current_pharmacy,
-          current_pharmacy_phone: formData.current_pharmacy_phone || null,
+          date_of_birth: formData.dateOfBirth || null,
+          current_pharmacy: formData.currentPharmacy,
+          current_pharmacy_phone: formData.currentPharmacyPhone || null,
           medications: formData.medications || null,
           notes: formData.notes || null
         });
@@ -106,85 +78,35 @@ const TransferPrescription: React.FC = () => {
         throw error;
       }
 
-      // Update rate limiting
-      setRateLimitCount(prev => prev + 1);
-      setLastSubmission(now);
-
-      toast.success("Transfer Request Submitted! We'll contact you within 24 hours to complete your prescription transfer.");
+      toast({
+        title: "Transfer Request Submitted!",
+        description: "Your request has been received. We'll contact you within 24 hours to complete your prescription transfer.",
+      });
 
       // Reset form
       setFormData({
-        first_name: "",
-        last_name: "",
+        firstName: "",
+        lastName: "",
         phone: "",
         email: "",
-        date_of_birth: "",
-        current_pharmacy: "",
-        current_pharmacy_phone: "",
+        dateOfBirth: "",
+        currentPharmacy: "",
+        currentPharmacyPhone: "",
         medications: "",
         notes: ""
       });
 
     } catch (error) {
       console.error('Error submitting transfer request:', error);
-      toast.error("There was an error submitting your request. Please try again or call us directly.");
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your request. Please try again or call us directly.",
+        variant: "destructive"
+      });
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  // Show loading spinner while checking authentication
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-accent/5">
-        <Header />
-        <main className="container mx-auto px-4 py-16">
-          <div className="max-w-md mx-auto text-center">
-            <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-muted-foreground">Loading...</p>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
-
-  // Show authentication form if user is not signed in
-  if (!user) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-accent/5">
-        <Header />
-        <main className="container mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto">
-            <Link 
-              to="/" 
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
-            >
-              <ArrowLeft size={20} />
-              Back to Home
-            </Link>
-            
-            <div className="text-center mb-12">
-              <div className="inline-block mb-6">
-                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-lg">
-                  <RotateCcw size={40} className="text-white" />
-                </div>
-              </div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-4">
-                Transfer Your Prescription
-              </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-                Please sign in or create an account to securely transfer your prescriptions.
-              </p>
-            </div>
-            
-            <AuthForm onSuccess={() => setShowForm(true)} />
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-accent/5">
@@ -341,22 +263,22 @@ const TransferPrescription: React.FC = () => {
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
-                            <Label htmlFor="first_name">First Name <span className="text-red-500">*</span></Label>
+                            <Label htmlFor="firstName">First Name <span className="text-red-500">*</span></Label>
                             <Input
-                              id="first_name"
-                              name="first_name"
-                              value={formData.first_name}
+                              id="firstName"
+                              name="firstName"
+                              value={formData.firstName}
                               onChange={handleInputChange}
                               required
                               className="mt-1"
                             />
                           </div>
                           <div>
-                            <Label htmlFor="last_name">Last Name <span className="text-red-500">*</span></Label>
+                            <Label htmlFor="lastName">Last Name <span className="text-red-500">*</span></Label>
                             <Input
-                              id="last_name"
-                              name="last_name"
-                              value={formData.last_name}
+                              id="lastName"
+                              name="lastName"
+                              value={formData.lastName}
                               onChange={handleInputChange}
                               required
                               className="mt-1"
@@ -389,12 +311,12 @@ const TransferPrescription: React.FC = () => {
                           </div>
                         </div>
                         <div>
-                          <Label htmlFor="date_of_birth">Date of Birth <span className="text-red-500">*</span></Label>
+                          <Label htmlFor="dateOfBirth">Date of Birth <span className="text-red-500">*</span></Label>
                           <Input
-                            id="date_of_birth"
-                            name="date_of_birth"
+                            id="dateOfBirth"
+                            name="dateOfBirth"
                             type="date"
-                            value={formData.date_of_birth}
+                            value={formData.dateOfBirth}
                             onChange={handleInputChange}
                             required
                             className="mt-1"
@@ -409,11 +331,11 @@ const TransferPrescription: React.FC = () => {
                           Current Pharmacy Information
                         </h3>
                         <div>
-                          <Label htmlFor="current_pharmacy">Current Pharmacy Name & Address <span className="text-red-500">*</span></Label>
+                          <Label htmlFor="currentPharmacy">Current Pharmacy Name & Address <span className="text-red-500">*</span></Label>
                           <Input
-                            id="current_pharmacy"
-                            name="current_pharmacy"
-                            value={formData.current_pharmacy}
+                            id="currentPharmacy"
+                            name="currentPharmacy"
+                            value={formData.currentPharmacy}
                             onChange={handleInputChange}
                             placeholder="e.g., CVS Pharmacy, 123 Main St, Seattle, WA"
                             required
@@ -421,12 +343,12 @@ const TransferPrescription: React.FC = () => {
                           />
                         </div>
                         <div>
-                          <Label htmlFor="current_pharmacy_phone">Current Pharmacy Phone Number <span className="text-red-500">*</span></Label>
+                          <Label htmlFor="currentPharmacyPhone">Current Pharmacy Phone Number <span className="text-red-500">*</span></Label>
                           <Input
-                            id="current_pharmacy_phone"
-                            name="current_pharmacy_phone"
+                            id="currentPharmacyPhone"
+                            name="currentPharmacyPhone"
                             type="tel"
-                            value={formData.current_pharmacy_phone}
+                            value={formData.currentPharmacyPhone}
                             onChange={handleInputChange}
                             required
                             className="mt-1"
