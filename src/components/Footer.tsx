@@ -36,32 +36,37 @@ const Footer = () => {
           
           <div>
             <h4 className="text-xl font-semibold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Contact Info</h4>
-            <ul className="space-y-4 text-white/80">
-              <li className="flex items-center space-x-2">
-                <Phone size={16} />
-                <a href="tel:+12066473784" className="hover:text-white transition-colors cursor-pointer">(206) 647-3784</a>
+            <ul className="space-y-4 text-white/90">
+              <li className="flex items-center space-x-3">
+                <Phone size={18} className="flex-shrink-0" />
+                <a href="tel:+12066473784" className="hover:text-white transition-colors cursor-pointer text-base">(206) 647-3784</a>
               </li>
-              <li className="flex items-center space-x-2">
-                <Printer size={16} />
-                <span className="hover:text-white transition-colors cursor-pointer">(206) 647-3783</span>
+              <li className="flex items-center space-x-3">
+                <Printer size={18} className="flex-shrink-0" />
+                <span className="hover:text-white transition-colors cursor-pointer text-base">(206) 647-3783</span>
               </li>
               <li>
-                <div className="flex items-start space-x-2">
-                  <MapPin size={16} className="mt-0.5 flex-shrink-0" />
+                <div className="flex items-start space-x-3">
+                  <MapPin size={18} className="mt-0.5 flex-shrink-0" />
                   <a 
                     href="https://maps.google.com/?q=2703+76th+Ave+SE,+Mercer+Island,+WA+98040" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="hover:text-white transition-colors cursor-pointer"
+                    className="hover:text-white transition-colors cursor-pointer text-base leading-relaxed"
                   >
                     2703 76th Ave SE<br />
                     Mercer Island, WA 98040
                   </a>
                 </div>
               </li>
-              <li className="flex items-center space-x-2">
-                <Mail size={16} />
-                <a href="mailto:mercerislandpharmacy@gmail.com" className="hover:text-white transition-colors cursor-pointer">mercerislandpharmacy@gmail.com</a>
+              <li className="flex items-center space-x-3">
+                <Mail size={18} className="flex-shrink-0 text-white" />
+                <a 
+                  href="mailto:mercerislandpharmacy@gmail.com" 
+                  className="hover:text-white transition-colors cursor-pointer text-base break-all"
+                >
+                  mercerislandpharmacy@gmail.com
+                </a>
               </li>
             </ul>
           </div>
