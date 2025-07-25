@@ -48,7 +48,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <h3 className="text-3xl font-semibold text-foreground mt-8 mb-3">Dr. James Mitchell</h3>
+          <h3 className="text-3xl font-semibold text-foreground mt-8 mb-3">Sripriya Chellappan</h3>
           <p className="text-lg text-muted-foreground">15+ Years Experience • PharmD, RPh</p>
         </div>
 
