@@ -26,7 +26,7 @@ const About = () => {
             About Mercer Island Pharmacy
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Since 1998, Mercer Island Pharmacy has been a cornerstone of healthcare in our community. 
+            Mercer Island Pharmacy has been a cornerstone of healthcare in our community. 
             We pride ourselves on providing personalized pharmaceutical care with a focus on building 
             lasting relationships with our patients.
           </p>
