@@ -37,7 +37,7 @@ const Immunizations = () => {
                 <li>• COVID-19 vaccines & boosters</li>
                 <li>• Shingles vaccine</li>
                 <li>• Pneumonia vaccine</li>
-                <li>• Travel vaccines</li>
+                <li>• HPV vaccine</li>
                 <li>• Tdap (Tetanus, Diphtheria, Pertussis)</li>
                 <li>• Hepatitis A & B</li>
               </ul>
@@ -46,12 +46,10 @@ const Immunizations = () => {
             <div className="bg-card p-6 rounded-lg border">
               <h3 className="text-xl font-semibold mb-4">Our Process</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>• Walk-ins welcome (subject to availability)</li>
-                <li>• Appointments recommended</li>
+                <li>• Walk-ins welcome</li>
                 <li>• Insurance accepted</li>
                 <li>• Quick & comfortable administration</li>
                 <li>• Documentation provided</li>
-                <li>• Follow-up care if needed</li>
               </ul>
             </div>
           </div>
