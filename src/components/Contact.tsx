@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Hospital, MapPin, Phone, Clock, Pill } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const hours = [
@@ -105,11 +106,18 @@ const Contact = () => {
                 We'll have your medications ready for pickup!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  Order Refill Online
+                <Button 
+                  asChild
+                  className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                >
+                  <a href="tel:+12066226094">Order Refill by Phone</a>
                 </Button>
-                <Button variant="outline" className="border-2 border-primary/60 text-primary hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white hover:border-transparent transition-all duration-300 hover:-translate-y-1">
-                  Call for Refill
+                <Button 
+                  asChild
+                  variant="outline" 
+                  className="border-2 border-primary/60 text-primary hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white hover:border-transparent transition-all duration-300 hover:-translate-y-1"
+                >
+                  <Link to="/transfer-prescription">Transfer Prescription</Link>
                 </Button>
               </div>
             </CardContent>

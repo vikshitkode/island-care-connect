@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Pill, RotateCcw } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/pharmacy-hero.jpg";
 
 const Hero = () => {
@@ -39,16 +40,22 @@ const Hero = () => {
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 animate-fade-in delay-500">
           <Button 
+            asChild
             size="lg" 
-            className="bg-white text-primary hover:bg-white/90 hover:text-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 px-8 py-4 text-lg font-medium inline-flex items-center gap-2"
+            className="bg-white text-primary hover:bg-white/90 hover:text-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 px-8 py-4 text-lg font-medium"
           >
-            <Pill size={20} /> Refill Prescription
+            <a href="tel:+12066226094" className="inline-flex items-center gap-2">
+              <Pill size={20} /> Refill Prescription
+            </a>
           </Button>
           <Button 
+            asChild
             size="lg" 
-            className="bg-white text-primary hover:bg-white/90 hover:text-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 px-8 py-4 text-lg font-medium inline-flex items-center gap-2"
+            className="bg-white text-primary hover:bg-white/90 hover:text-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 px-8 py-4 text-lg font-medium"
           >
-            <RotateCcw size={20} /> Transfer Prescription
+            <Link to="/transfer-prescription" className="inline-flex items-center gap-2">
+              <RotateCcw size={20} /> Transfer Prescription
+            </Link>
           </Button>
         </div>
         

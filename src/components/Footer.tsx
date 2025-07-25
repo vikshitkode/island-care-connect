@@ -35,7 +35,7 @@ const Footer = () => {
               <li><a href="#services" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-flex items-center gap-2"><Pill size={16} /> Services</a></li>
               <li><a href="#about" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-flex items-center gap-2"><Users size={16} /> About Us</a></li>
               <li><a href="#contact" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-flex items-center gap-2"><PhoneCall size={16} /> Contact</a></li>
-              <li><a href="#" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-flex items-center gap-2"><RotateCcw size={16} /> Online Refills</a></li>
+              <li><a href="/transfer-prescription" className="hover:text-white transition-all duration-300 hover:translate-x-1 inline-flex items-center gap-2"><RotateCcw size={16} /> Transfer Prescription</a></li>
             </ul>
           </div>
           

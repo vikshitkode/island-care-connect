@@ -24,8 +24,13 @@ const Header = () => {
           <a href="#contact" className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium relative after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-gradient-to-r after:from-primary after:to-accent after:transition-all after:duration-300 hover:after:w-full">
             Contact
           </a>
-          <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 inline-flex items-center gap-2">
-            <Pill size={16} /> Refill Prescription
+          <Button 
+            asChild
+            className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+          >
+            <a href="tel:+12066226094" className="inline-flex items-center gap-2">
+              <Pill size={16} /> Refill Prescription
+            </a>
           </Button>
         </nav>
       </div>
