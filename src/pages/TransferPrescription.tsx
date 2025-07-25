@@ -172,8 +172,8 @@ const TransferPrescription: React.FC = () => {
                         </ul>
                       </div>
                       <div className="text-center">
-                        <p className="text-sm text-muted-foreground mb-4">Available Mon-Fri 9AM-7PM, Sat 9AM-6PM</p>
-                        <Button 
+                        <p className="text-sm text-muted-foreground mb-4">Available Mon-Fri 8:30AM-5PM, Closed on Sat and Sun</p>
+                        <Button
                           asChild
                           size="lg"
                           className="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 py-3 text-lg"
