@@ -1,4 +1,4 @@
-import { Phone, MapPin, Mail, Pill, Users, PhoneCall, RotateCcw } from "lucide-react";
+import { Phone, MapPin, Mail, Pill, Users, PhoneCall, RotateCcw, Printer } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -40,6 +40,10 @@ const Footer = () => {
               <li className="flex items-center space-x-2">
                 <Phone size={16} />
                 <span className="hover:text-white transition-colors cursor-pointer">(206) 647-3784</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Printer size={16} />
+                <span className="hover:text-white transition-colors cursor-pointer">(206) 647-3783</span>
               </li>
               <li>
                 <div className="flex items-start space-x-2">
