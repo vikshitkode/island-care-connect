@@ -309,8 +309,9 @@ const Shop = () => {
             <Button 
               size="lg" 
               className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-3"
+              asChild
             >
-              <a href="tel:+12066473784" className="flex items-center">Call Us Now</a>
+              <a href="tel:+12066473784">Call Us Now</a>
             </Button>
           </div>
         </div>
