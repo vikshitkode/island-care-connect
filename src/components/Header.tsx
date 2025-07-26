@@ -28,12 +28,12 @@ const Header = () => {
   };
   return (
     <header className="bg-background/80 backdrop-blur-xl border-b border-primary/10 sticky top-0 z-50 shadow-sm">
-      <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-3 group p-2">
+      <div className="container mx-auto px-6 sm:px-8 py-8 flex justify-between items-center">
+        <Link to="/" className="flex items-center space-x-3 group p-4">
           <img 
             src="/lovable-uploads/3f657a42-0227-4eae-9912-82e734da7787.png" 
             alt="Mercer Island Pharmacy Logo" 
-            className="h-8 sm:h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+            className="h-10 sm:h-12 w-auto transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
         
@@ -88,7 +88,7 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="lg:hidden border-t border-primary/10 bg-background/95 backdrop-blur-xl">
-            <nav className="container mx-auto px-4 py-6 space-y-4">
+            <nav className="container mx-auto px-6 sm:px-8 py-8 space-y-4">
             <button 
               onClick={() => {
                 handleSectionClick('services');
