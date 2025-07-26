@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { Pill } from "lucide-react";
+import { Pill, Menu, X } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleSectionClick = (sectionId: string) => {
     if (location.pathname === '/') {
@@ -31,11 +33,12 @@ const Header = () => {
           <img 
             src="/lovable-uploads/3f657a42-0227-4eae-9912-82e734da7787.png" 
             alt="Mercer Island Pharmacy Logo" 
-            className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+            className="h-8 sm:h-10 w-auto transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
         
-        <nav className="hidden md:flex items-center space-x-8">
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           <button 
             onClick={() => handleSectionClick('services')}
             className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium relative after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-gradient-to-r after:from-primary after:to-accent after:transition-all after:duration-300 hover:after:w-full"
@@ -63,14 +66,77 @@ const Header = () => {
           </button>
           <Button 
             asChild
+            size="sm"
             className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
           >
             <a href="https://patient.rxlocal.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
-              <Pill size={16} /> Refill Prescription
+              <Pill size={16} /> <span className="hidden xl:inline">Refill Prescription</span><span className="xl:hidden">Refill</span>
             </a>
           </Button>
         </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="lg:hidden p-2 rounded-md hover:bg-secondary transition-colors"
+          aria-label="Toggle mobile menu"
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {/* Mobile Navigation */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden border-t border-primary/10 bg-background/95 backdrop-blur-xl">
+          <nav className="container mx-auto px-4 py-4 space-y-4">
+            <button 
+              onClick={() => {
+                handleSectionClick('services');
+                setIsMobileMenuOpen(false);
+              }}
+              className="block w-full text-left text-muted-foreground hover:text-primary transition-colors py-2"
+            >
+              Services
+            </button>
+            <Link 
+              to="/shop" 
+              onClick={() => {
+                window.scrollTo(0, 0);
+                setIsMobileMenuOpen(false);
+              }}
+              className="block text-muted-foreground hover:text-primary transition-colors py-2"
+            >
+              Shop
+            </Link>
+            <button 
+              onClick={() => {
+                handleSectionClick('about');
+                setIsMobileMenuOpen(false);
+              }}
+              className="block w-full text-left text-muted-foreground hover:text-primary transition-colors py-2"
+            >
+              About
+            </button>
+            <button 
+              onClick={() => {
+                handleSectionClick('contact');
+                setIsMobileMenuOpen(false);
+              }}
+              className="block w-full text-left text-muted-foreground hover:text-primary transition-colors py-2"
+            >
+              Contact
+            </button>
+            <Button 
+              asChild
+              className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg"
+            >
+              <a href="https://patient.rxlocal.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2">
+                <Pill size={16} /> Refill Prescription
+              </a>
+            </Button>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };

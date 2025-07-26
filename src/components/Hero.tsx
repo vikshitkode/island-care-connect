@@ -21,63 +21,63 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <div className="mb-8 animate-fade-in">
+        <div className="mb-6 sm:mb-8 animate-fade-in">
           <img 
             src="/lovable-uploads/fd933d4c-e5df-48f8-a99f-7236c85e8509.png" 
             alt="Mercer Island Pharmacy" 
-            className="w-auto h-32 md:h-40 mx-auto mb-6 drop-shadow-2xl bg-white/90 backdrop-blur-sm rounded-2xl p-4 border border-white/20"
+            className="w-auto h-24 sm:h-32 md:h-40 lg:h-48 mx-auto mb-4 sm:mb-6 drop-shadow-2xl bg-white/90 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-white/20"
           />
         </div>
         
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-white/90 to-white bg-clip-text text-transparent leading-tight animate-fade-in delay-150">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white via-white/90 to-white bg-clip-text text-transparent leading-tight animate-fade-in delay-150">
           Your Health is Our Priority
         </h1>
         
-        <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed text-white/90 animate-fade-in delay-300">
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 sm:mb-12 max-w-5xl mx-auto leading-relaxed text-white/90 animate-fade-in delay-300 px-4">
           Your trusted neighborhood pharmacy providing personalized care, expert advice, 
           and comprehensive health services.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 animate-fade-in delay-500">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-16 animate-fade-in delay-500 px-4">
           <Button 
             asChild
             size="lg" 
-            className="bg-white text-primary hover:bg-white/90 hover:text-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 px-8 py-4 text-lg font-medium"
+            className="bg-white text-primary hover:bg-white/90 hover:text-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium"
           >
             <a href="https://patient.rxlocal.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
-              <Pill size={20} /> Refill Prescription
+              <Pill size={18} /> Refill Prescription
             </a>
           </Button>
           <Button 
             asChild
             size="lg" 
-            className="bg-white text-primary hover:bg-white/90 hover:text-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 px-8 py-4 text-lg font-medium"
+            className="bg-white text-primary hover:bg-white/90 hover:text-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium"
           >
             <Link to="/transfer-prescription" className="inline-flex items-center gap-2">
-              <RotateCcw size={20} /> Transfer Prescription
+              <RotateCcw size={18} /> Transfer Prescription
             </Link>
           </Button>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto animate-fade-in delay-700">
-          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-            <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">24/7</div>
-            <div className="text-white/80 font-medium">Online Refills</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto animate-fade-in delay-700 px-4">
+          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">24/7</div>
+            <div className="text-white/80 font-medium text-sm sm:text-base">Online Refills</div>
           </div>
-          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-            <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Expert</div>
-            <div className="text-white/80 font-medium">Healthcare Services</div>
+          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Expert</div>
+            <div className="text-white/80 font-medium text-sm sm:text-base">Healthcare Services</div>
           </div>
-          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-            <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">5000+</div>
-            <div className="text-white/80 font-medium">Happy Customers</div>
+          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 sm:col-span-2 md:col-span-1">
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">5000+</div>
+            <div className="text-white/80 font-medium text-sm sm:text-base">Happy Customers</div>
           </div>
         </div>
         
         {/* Licensing Badge */}
-        <div className="mt-16 animate-fade-in delay-1000">
-          <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20 inline-block">
-            <p className="text-white/90 text-sm font-medium">
+        <div className="mt-12 sm:mt-16 animate-fade-in delay-1000 px-4">
+          <div className="bg-white/10 backdrop-blur-md rounded-lg p-3 sm:p-4 border border-white/20 inline-block">
+            <p className="text-white/90 text-xs sm:text-sm font-medium text-center">
               ✓ Licensed by the Washington State Board of Pharmacy
             </p>
           </div>

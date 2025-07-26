@@ -22,10 +22,10 @@ const About = () => {
           <div className="inline-block mb-6">
             <Users size={60} className="text-primary mx-auto mb-6" />
           </div>
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6">
             About Mercer Island Pharmacy
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed px-4">
             Mercer Island Pharmacy has been a cornerstone of healthcare in our community. 
             We pride ourselves on providing personalized pharmaceutical care with a focus on building 
             lasting relationships with our patients.
@@ -40,7 +40,7 @@ const About = () => {
             <img 
               src="/lovable-uploads/c2c85c65-849b-4999-a522-0a45ebd293e9.png" 
               alt="Head Pharmacist" 
-              className="relative w-48 h-48 rounded-full mx-auto mb-4 object-cover object-center border-4 border-white shadow-2xl group-hover:scale-105 transition-transform duration-300"
+              className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full mx-auto mb-4 object-cover object-center border-4 border-white shadow-2xl group-hover:scale-105 transition-transform duration-300"
             />
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
               <div className="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg">
@@ -48,8 +48,8 @@ const About = () => {
               </div>
             </div>
           </div>
-          <h3 className="text-3xl font-semibold text-foreground mt-8 mb-3">Sripriya Chellappan</h3>
-          <p className="text-lg text-muted-foreground">15+ Years Experience • PharmD, RPh</p>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground mt-6 sm:mt-8 mb-3">Sripriya Chellappan</h3>
+          <p className="text-base sm:text-lg text-muted-foreground">15+ Years Experience • PharmD, RPh</p>
         </div>
 
         {/* Auto-scrolling Team Section */}
@@ -77,7 +77,7 @@ const About = () => {
         </div>
 
         {/* Stats and Values Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           <Card className="group bg-gradient-to-br from-primary/10 via-background to-primary/5 border-primary/30 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <CardContent className="p-10 relative z-10">
