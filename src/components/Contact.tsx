@@ -111,7 +111,7 @@ const Contact = () => {
                   asChild
                   className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 >
-                  <a href="https://patient.rxlocal.com/" target="_blank" rel="noopener noreferrer">Order Refill Online</a>
+                  <a href="tel:+12066473784">Order Refill by Phone</a>
                 </Button>
                 <Button 
                   asChild
