@@ -30,7 +30,7 @@ const Hero = () => {
         </div>
         
         <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-white/90 to-white bg-clip-text text-transparent leading-tight animate-fade-in delay-150">
-          Your Health, Our Priority
+          Your Health is Our Priority
         </h1>
         
         <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed text-white/90 animate-fade-in delay-300">
