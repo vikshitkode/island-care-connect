@@ -24,8 +24,11 @@ const FreeDelivery = () => {
           <div className="text-center mb-12">
             <Truck size={60} className="text-primary mx-auto mb-6" />
             <h1 className="text-4xl font-bold text-foreground mb-4">Free Delivery</h1>
-            <p className="text-xl text-muted-foreground">
-              Convenient free delivery service to your home or office within Mercer Island.
+            <p className="text-xl text-muted-foreground mb-2">
+              Convenient free delivery service to your home or office.
+            </p>
+            <p className="text-lg font-semibold text-primary">
+              Available exclusively within Mercer Island
             </p>
           </div>
 
