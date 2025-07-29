@@ -61,9 +61,9 @@ const FreeDelivery = () => {
             <p className="text-muted-foreground mb-6">
               Ready to schedule your free delivery?
             </p>
-            <Link to="/#contact">
-              <Button size="lg">Schedule Delivery</Button>
-            </Link>
+            <a href="tel:+12066473784">
+              <Button size="lg">Give us a Call</Button>
+            </a>
           </div>
         </div>
       </main>
