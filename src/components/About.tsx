@@ -26,7 +26,6 @@ const About = () => {
             About Mercer Island Pharmacy
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed px-4">
-            Mercer Island Pharmacy has been a cornerstone of healthcare in our community. 
             We pride ourselves on providing personalized pharmaceutical care with a focus on building 
             lasting relationships with our patients.
           </p>
@@ -52,29 +51,6 @@ const About = () => {
           <p className="text-base sm:text-lg text-muted-foreground">15+ Years Experience • PharmD, RPh</p>
         </div>
 
-        {/* Auto-scrolling Team Section */}
-        <div className="mb-20">
-          <h3 className="text-3xl font-bold text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-12">Our Expert Team</h3>
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary/5 via-background to-accent/5 p-8">
-            <div className="flex animate-[slide-left_25s_linear_infinite] space-x-12">
-              {[...teamMembers, ...teamMembers].map((member, index) => {
-                const IconComponent = member.icon;
-                return (
-                  <div key={index} className="flex-shrink-0 text-center group">
-                    <div className="relative">
-                      <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-0 group-hover:opacity-75 transition duration-300"></div>
-                      <div className="relative w-32 h-32 rounded-full mx-auto mb-4 bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-primary/20 shadow-lg group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-                        <IconComponent size={48} className="text-primary group-hover:text-accent transition-colors duration-300" />
-                      </div>
-                    </div>
-                    <h4 className="font-semibold text-foreground text-sm mb-1">{member.name}</h4>
-                    <p className="text-xs text-muted-foreground">{member.role}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
 
         {/* Stats and Values Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
@@ -86,21 +62,6 @@ const About = () => {
             </CardContent>
           </Card>
           
-          <Card className="group bg-gradient-to-br from-accent/10 via-background to-accent/5 border-accent/30 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <CardContent className="p-10 relative z-10">
-              <div className="text-5xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">6</div>
-              <div className="text-sm text-muted-foreground font-medium group-hover:text-foreground transition-colors duration-300">Certified Technicians</div>
-            </CardContent>
-          </Card>
-          
-          <Card className="group bg-gradient-to-br from-primary/10 via-background to-accent/10 border-primary/30 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <CardContent className="p-10 relative z-10">
-              <div className="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">5000+</div>
-              <div className="text-sm text-muted-foreground font-medium group-hover:text-foreground transition-colors duration-300">Prescriptions Filled</div>
-            </CardContent>
-          </Card>
           
         </div>
       </div>

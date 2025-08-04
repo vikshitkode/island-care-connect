@@ -45,13 +45,6 @@ const Header = () => {
           >
             Services
           </button>
-          <Link 
-            to="/shop" 
-            onClick={() => window.scrollTo(0, 0)}
-            className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium relative after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-gradient-to-r after:from-primary after:to-accent after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Shop
-          </Link>
           <button 
             onClick={() => handleSectionClick('about')}
             className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium relative after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-gradient-to-r after:from-primary after:to-accent after:transition-all after:duration-300 hover:after:w-full"
@@ -98,16 +91,6 @@ const Header = () => {
             >
               Services
             </button>
-            <Link 
-              to="/shop" 
-              onClick={() => {
-                window.scrollTo(0, 0);
-                setIsMobileMenuOpen(false);
-              }}
-              className="block text-muted-foreground hover:text-primary transition-colors py-2"
-            >
-              Shop
-            </Link>
             <button 
               onClick={() => {
                 handleSectionClick('about');

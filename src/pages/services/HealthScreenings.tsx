@@ -34,8 +34,6 @@ const HealthScreenings = () => {
               <h3 className="text-xl font-semibold mb-4">Screening Services</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li>• Blood pressure monitoring</li>
-                <li>• Cholesterol testing</li>
-                <li>• Blood glucose testing</li>
                 <li>• BMI calculations</li>
                 <li>• Heart rate monitoring</li>
                 <li>• Basic health assessments</li>
@@ -45,10 +43,8 @@ const HealthScreenings = () => {
             <div className="bg-card p-6 rounded-lg border">
               <h3 className="text-xl font-semibold mb-4">Diabetes Support</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>• Blood sugar monitoring</li>
                 <li>• Medication management</li>
                 <li>• Lifestyle counseling</li>
-                <li>• Continuous glucose monitoring setup</li>
                 <li>• Insulin injection training</li>
                 <li>• Regular check-ins</li>
               </ul>

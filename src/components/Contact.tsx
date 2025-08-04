@@ -26,7 +26,7 @@ const Contact = () => {
             Visit Us Today
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
-            Conveniently located in the heart of Mercer Island with ample parking and easy access
+            Conveniently located in the heart of Mercer Island with easy access
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-6 rounded-full"></div>
         </div>

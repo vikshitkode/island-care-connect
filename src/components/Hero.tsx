@@ -68,10 +68,6 @@ const Hero = () => {
             <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Expert</div>
             <div className="text-white/80 font-medium text-sm sm:text-base">Healthcare Services</div>
           </div>
-          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 sm:col-span-2 md:col-span-1">
-            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">5000+</div>
-            <div className="text-white/80 font-medium text-sm sm:text-base">Happy Customers</div>
-          </div>
         </div>
         
         {/* Licensing Badge */}

@@ -173,7 +173,7 @@ const TransferPrescription: React.FC = () => {
                       </div>
                     </div>
                     <div className="text-center">
-                      <p className="text-sm text-muted-foreground mb-4">Available Mon-Fri 8:30AM-5PM, Closed on Sat and Sun</p>
+                      <p className="text-sm text-muted-foreground mb-4">Monday - Friday 9:00 AM - 6:00 PM, Saturday 10:00 AM - 2:00 PM and Sunday is Closed</p>
                       <Button 
                         asChild
                         size="lg"
