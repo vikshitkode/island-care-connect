@@ -12,13 +12,13 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 bg-gradient-to-b from-secondary/10 via-background to-primary/5 relative overflow-hidden">
+    <section id="about" className="py-20 lg:py-32 bg-gradient-to-b from-secondary/10 via-background to-primary/5 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-20 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-16 lg:mb-24">
           <div className="inline-block mb-6">
             <Users size={60} className="text-primary mx-auto mb-6" />
           </div>
@@ -29,17 +29,17 @@ const About = () => {
             We pride ourselves on providing personalized pharmaceutical care with a focus on building 
             lasting relationships with our patients.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mt-6 rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mt-8 rounded-full"></div>
         </div>
 
         {/* Head Pharmacist Section */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16 lg:mb-24">
           <div className="inline-block relative group">
             <div className="absolute -inset-2 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
             <img 
               src="/lovable-uploads/c2c85c65-849b-4999-a522-0a45ebd293e9.png" 
               alt="Head Pharmacist" 
-              className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full mx-auto mb-4 object-cover object-center border-4 border-white shadow-2xl group-hover:scale-105 transition-transform duration-300"
+              className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full mx-auto mb-6 object-cover object-center border-4 border-white shadow-2xl group-hover:scale-105 transition-transform duration-300"
             />
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
               <div className="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg">
@@ -47,22 +47,21 @@ const About = () => {
               </div>
             </div>
           </div>
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground mt-6 sm:mt-8 mb-3">Sripriya Chellappan</h3>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground mt-8 lg:mt-10 mb-3">Sripriya Chellappan</h3>
           <p className="text-base sm:text-lg text-muted-foreground">15+ Years Experience • PharmD, RPh</p>
         </div>
 
-
         {/* Stats and Values Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-          <Card className="group bg-gradient-to-br from-primary/10 via-background to-primary/5 border-primary/30 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <CardContent className="p-10 relative z-10">
-              <div className="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">3</div>
-              <div className="text-sm text-muted-foreground font-medium group-hover:text-foreground transition-colors duration-300">Licensed Pharmacists</div>
-            </CardContent>
-          </Card>
-          
-          
+        <div className="flex justify-center">
+          <div className="w-full max-w-md">
+            <Card className="group bg-gradient-to-br from-primary/10 via-background to-primary/5 border-primary/30 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <CardContent className="p-10 relative z-10">
+                <div className="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">3</div>
+                <div className="text-sm text-muted-foreground font-medium group-hover:text-foreground transition-colors duration-300">Licensed Pharmacists</div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </section>

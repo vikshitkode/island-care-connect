@@ -91,9 +91,9 @@ const Contact = () => {
           </Card>
         </div>
         
-        <div className="text-center">
-          <Card className="max-w-2xl mx-auto bg-gradient-to-br from-primary/20 via-background to-accent/20 border-2 border-primary/20 backdrop-blur-lg shadow-2xl hover:shadow-primary/20 transition-all duration-500">
-            <CardContent className="p-10">
+        <div className="flex justify-center">
+          <Card className="max-w-2xl w-full bg-gradient-to-br from-primary/20 via-background to-accent/20 border-2 border-primary/20 backdrop-blur-lg shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+            <CardContent className="p-8 lg:p-12 text-center">
               <div className="mb-6">
                 <div className="w-16 h-16 mx-auto bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-lg">
                   <Pill size={32} className="text-white" />
