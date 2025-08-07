@@ -4,12 +4,71 @@ import { ArrowLeft, RotateCcw, User, Phone, Building2, Pill, FileText, PhoneCall
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { supabase } from "@/integrations/supabase/client";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
+// Form validation schema
+const formSchema = z.object({
+  firstName: z.string()
+    .min(1, "First name is required")
+    .min(2, "First name must be at least 2 characters")
+    .max(50, "First name must be less than 50 characters")
+    .regex(/^[a-zA-Z\s'-]+$/, "First name can only contain letters, spaces, hyphens, and apostrophes"),
+  
+  lastName: z.string()
+    .min(1, "Last name is required")
+    .min(2, "Last name must be at least 2 characters")
+    .max(50, "Last name must be less than 50 characters")
+    .regex(/^[a-zA-Z\s'-]+$/, "Last name can only contain letters, spaces, hyphens, and apostrophes"),
+  
+  phone: z.string()
+    .min(1, "Phone number is required")
+    .regex(/^\(\d{3}\) \d{3}-\d{4}$/, "Please enter a valid US phone number"),
+  
+  email: z.string()
+    .optional()
+    .refine((val) => !val || z.string().email().safeParse(val).success, {
+      message: "Please enter a valid email address"
+    }),
+  
+  dateOfBirth: z.string()
+    .min(1, "Date of birth is required")
+    .refine((date) => {
+      const birthDate = new Date(date);
+      const today = new Date();
+      const minDate = new Date();
+      minDate.setFullYear(today.getFullYear() - 120);
+      
+      return birthDate <= today && birthDate >= minDate;
+    }, "Please enter a valid date of birth"),
+  
+  currentPharmacy: z.string()
+    .min(1, "Current pharmacy information is required")
+    .min(5, "Please provide complete pharmacy information")
+    .max(200, "Pharmacy information is too long"),
+  
+  currentPharmacyPhone: z.string()
+    .min(1, "Current pharmacy phone number is required")
+    .regex(/^\(\d{3}\) \d{3}-\d{4}$/, "Please enter a valid US phone number"),
+  
+  medications: z.string()
+    .min(1, "Medication information is required")
+    .min(3, "Please provide medication details")
+    .max(1000, "Medication information is too long"),
+  
+  notes: z.string()
+    .max(500, "Notes must be less than 500 characters")
+    .optional()
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 const TransferPrescription: React.FC = () => {
   const { toast } = useToast();
@@ -20,58 +79,55 @@ const TransferPrescription: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    dateOfBirth: "",
-    currentPharmacy: "",
-    currentPharmacyPhone: "",
-    medications: "",
-    notes: ""
+  const form = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      phone: "",
+      email: "",
+      dateOfBirth: "",
+      currentPharmacy: "",
+      currentPharmacyPhone: "",
+      medications: "",
+      notes: ""
+    }
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  // Phone number formatting function
+  const formatPhoneNumber = (value: string) => {
+    // Remove all non-digits
+    const phoneNumber = value.replace(/\D/g, '');
+    
+    // Format as (xxx) xxx-xxxx
+    if (phoneNumber.length >= 6) {
+      return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+    } else if (phoneNumber.length >= 3) {
+      return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+    } else {
+      return phoneNumber;
+    }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Validate required fields
-    if (!formData.firstName || !formData.lastName || !formData.phone || !formData.dateOfBirth || 
-        !formData.currentPharmacy || !formData.currentPharmacyPhone || !formData.medications) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields.",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    setIsSubmitting(true);
-
+  const handleSubmit = async (data: FormData) => {
     try {
+      // Clean phone numbers (remove formatting for storage)
+      const cleanPhone = data.phone.replace(/\D/g, '');
+      const cleanPharmacyPhone = data.currentPharmacyPhone.replace(/\D/g, '');
+
       // Insert the transfer request into Supabase
       const { error } = await supabase
         .from('transfer_requests')
         .insert({
-          first_name: formData.firstName,
-          last_name: formData.lastName,
-          phone: formData.phone,
-          email: formData.email || null,
-          date_of_birth: formData.dateOfBirth || null,
-          current_pharmacy: formData.currentPharmacy,
-          current_pharmacy_phone: formData.currentPharmacyPhone || null,
-          medications: formData.medications || null,
-          notes: formData.notes || null
+          first_name: data.firstName,
+          last_name: data.lastName,
+          phone: cleanPhone,
+          email: data.email || null,
+          date_of_birth: data.dateOfBirth || null,
+          current_pharmacy: data.currentPharmacy,
+          current_pharmacy_phone: cleanPharmacyPhone || null,
+          medications: data.medications || null,
+          notes: data.notes || null
         });
 
       if (error) {
@@ -84,17 +140,7 @@ const TransferPrescription: React.FC = () => {
       });
 
       // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        phone: "",
-        email: "",
-        dateOfBirth: "",
-        currentPharmacy: "",
-        currentPharmacyPhone: "",
-        medications: "",
-        notes: ""
-      });
+      form.reset();
 
     } catch (error) {
       console.error('Error submitting transfer request:', error);
@@ -103,8 +149,6 @@ const TransferPrescription: React.FC = () => {
         description: "There was an error submitting your request. Please try again or call us directly.",
         variant: "destructive"
       });
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -254,149 +298,200 @@ const TransferPrescription: React.FC = () => {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      {/* Personal Information */}
-                      <div className="space-y-4">
-                        <h3 className="text-lg font-semibold flex items-center gap-2">
-                          <User className="text-primary" size={20} />
-                          Personal Information
-                        </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div>
-                            <Label htmlFor="firstName">First Name <span className="text-red-500">*</span></Label>
-                            <Input
-                              id="firstName"
+                    <Form {...form}>
+                      <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
+                        {/* Personal Information */}
+                        <div className="space-y-4">
+                          <h3 className="text-lg font-semibold flex items-center gap-2">
+                            <User className="text-primary" size={20} />
+                            Personal Information
+                          </h3>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <FormField
+                              control={form.control}
                               name="firstName"
-                              value={formData.firstName}
-                              onChange={handleInputChange}
-                              required
-                              className="mt-1"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel>First Name <span className="text-red-500">*</span></FormLabel>
+                                  <FormControl>
+                                    <Input placeholder="Enter your first name" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
                             />
-                          </div>
-                          <div>
-                            <Label htmlFor="lastName">Last Name <span className="text-red-500">*</span></Label>
-                            <Input
-                              id="lastName"
+                            <FormField
+                              control={form.control}
                               name="lastName"
-                              value={formData.lastName}
-                              onChange={handleInputChange}
-                              required
-                              className="mt-1"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel>Last Name <span className="text-red-500">*</span></FormLabel>
+                                  <FormControl>
+                                    <Input placeholder="Enter your last name" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
                             />
                           </div>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div>
-                            <Label htmlFor="phone">Phone Number <span className="text-red-500">*</span></Label>
-                            <Input
-                              id="phone"
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <FormField
+                              control={form.control}
                               name="phone"
-                              type="tel"
-                              value={formData.phone}
-                              onChange={handleInputChange}
-                              required
-                              className="mt-1"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel>Phone Number <span className="text-red-500">*</span></FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="(555) 123-4567"
+                                      value={field.value}
+                                      onChange={(e) => {
+                                        const formatted = formatPhoneNumber(e.target.value);
+                                        if (formatted.replace(/\D/g, '').length <= 10) {
+                                          field.onChange(formatted);
+                                        }
+                                      }}
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
                             />
-                          </div>
-                          <div>
-                            <Label htmlFor="email">Email Address</Label>
-                            <Input
-                              id="email"
+                            <FormField
+                              control={form.control}
                               name="email"
-                              type="email"
-                              value={formData.email}
-                              onChange={handleInputChange}
-                              className="mt-1"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel>Email Address</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="your.email@example.com" 
+                                      type="email"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
                             />
                           </div>
-                        </div>
-                        <div>
-                          <Label htmlFor="dateOfBirth">Date of Birth <span className="text-red-500">*</span></Label>
-                          <Input
-                            id="dateOfBirth"
+                          <FormField
+                            control={form.control}
                             name="dateOfBirth"
-                            type="date"
-                            value={formData.dateOfBirth}
-                            onChange={handleInputChange}
-                            required
-                            className="mt-1"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Date of Birth <span className="text-red-500">*</span></FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    type="date" 
+                                    max={new Date().toISOString().split('T')[0]}
+                                    min={new Date(new Date().getFullYear() - 120, 0, 1).toISOString().split('T')[0]}
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
                           />
                         </div>
-                      </div>
 
-                      {/* Current Pharmacy Information */}
-                      <div className="space-y-4">
-                        <h3 className="text-lg font-semibold flex items-center gap-2">
-                          <Building2 className="text-primary" size={20} />
-                          Current Pharmacy Information
-                        </h3>
-                        <div>
-                          <Label htmlFor="currentPharmacy">Current Pharmacy Name & Address <span className="text-red-500">*</span></Label>
-                          <Input
-                            id="currentPharmacy"
+                        {/* Current Pharmacy Information */}
+                        <div className="space-y-4">
+                          <h3 className="text-lg font-semibold flex items-center gap-2">
+                            <Building2 className="text-primary" size={20} />
+                            Current Pharmacy Information
+                          </h3>
+                          <FormField
+                            control={form.control}
                             name="currentPharmacy"
-                            value={formData.currentPharmacy}
-                            onChange={handleInputChange}
-                            placeholder="e.g., CVS Pharmacy, 123 Main St, Seattle, WA"
-                            required
-                            className="mt-1"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Current Pharmacy Name & Address <span className="text-red-500">*</span></FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="e.g., CVS Pharmacy, 123 Main St, Seattle, WA"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
                           />
-                        </div>
-                        <div>
-                          <Label htmlFor="currentPharmacyPhone">Current Pharmacy Phone Number <span className="text-red-500">*</span></Label>
-                          <Input
-                            id="currentPharmacyPhone"
+                          <FormField
+                            control={form.control}
                             name="currentPharmacyPhone"
-                            type="tel"
-                            value={formData.currentPharmacyPhone}
-                            onChange={handleInputChange}
-                            required
-                            className="mt-1"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Current Pharmacy Phone Number <span className="text-red-500">*</span></FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="(555) 123-4567"
+                                    value={field.value}
+                                    onChange={(e) => {
+                                      const formatted = formatPhoneNumber(e.target.value);
+                                      if (formatted.replace(/\D/g, '').length <= 10) {
+                                        field.onChange(formatted);
+                                      }
+                                    }}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
                           />
                         </div>
-                      </div>
 
-                      {/* Medication Information */}
-                      <div className="space-y-4">
-                        <h3 className="text-lg font-semibold flex items-center gap-2">
-                          <Pill className="text-primary" size={20} />
-                          Medication Information
-                        </h3>
-                        <div>
-                          <Label htmlFor="medications">Medications to Transfer <span className="text-red-500">*</span></Label>
-                          <Textarea
-                            id="medications"
+                        {/* Medication Information */}
+                        <div className="space-y-4">
+                          <h3 className="text-lg font-semibold flex items-center gap-2">
+                            <Pill className="text-primary" size={20} />
+                            Medication Information
+                          </h3>
+                          <FormField
+                            control={form.control}
                             name="medications"
-                            value={formData.medications}
-                            onChange={handleInputChange}
-                            placeholder="List the medications you'd like to transfer (or write 'All active prescriptions')"
-                            rows={4}
-                            required
-                            className="mt-1"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Medications to Transfer <span className="text-red-500">*</span></FormLabel>
+                                <FormControl>
+                                  <Textarea
+                                    placeholder="List the medications you'd like to transfer (or write 'All active prescriptions')"
+                                    rows={4}
+                                    {...field}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
                           />
-                        </div>
-                        <div>
-                          <Label htmlFor="notes">Additional Notes</Label>
-                          <Textarea
-                            id="notes"
+                          <FormField
+                            control={form.control}
                             name="notes"
-                            value={formData.notes}
-                            onChange={handleInputChange}
-                            placeholder="Any special instructions or questions?"
-                            rows={3}
-                            className="mt-1"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Additional Notes</FormLabel>
+                                <FormControl>
+                                  <Textarea
+                                    placeholder="Any special instructions or questions?"
+                                    rows={3}
+                                    {...field}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
                           />
                         </div>
-                      </div>
 
-                      <Button 
-                        type="submit" 
-                        disabled={isSubmitting}
-                        className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 py-3 text-lg"
-                      >
-                        {isSubmitting ? "Submitting..." : "Submit Transfer Request"}
-                      </Button>
-                    </form>
+                        <Button 
+                          type="submit" 
+                          disabled={form.formState.isSubmitting}
+                          className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 py-3 text-lg"
+                        >
+                          {form.formState.isSubmitting ? "Submitting..." : "Submit Transfer Request"}
+                        </Button>
+                      </form>
+                    </Form>
                   </CardContent>
                 </Card>
               </div>
