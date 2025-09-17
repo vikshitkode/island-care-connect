@@ -59,49 +59,30 @@ const TransferPrescription: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Insert the transfer request into Supabase
-      const { error } = await supabase
-        .from('transfer_requests')
-        .insert({
-          first_name: formData.firstName,
-          last_name: formData.lastName,
-          phone: formData.phone,
-          email: formData.email || null,
-          date_of_birth: formData.dateOfBirth || null,
-          current_pharmacy: formData.currentPharmacy,
-          current_pharmacy_phone: formData.currentPharmacyPhone || null,
-          medications: formData.medications || null,
-          notes: formData.notes || null
-        });
-
-      if (error) {
-        throw error;
-      }
-
       // Send email notification to pharmacy
-      try {
-        await supabase.functions.invoke('send-transfer-notification', {
-          body: {
-            record: {
-              id: 'temp-id', 
-              first_name: formData.firstName,
-              last_name: formData.lastName,
-              phone: formData.phone,
-              email: formData.email,
-              date_of_birth: formData.dateOfBirth,
-              current_pharmacy: formData.currentPharmacy,
-              current_pharmacy_phone: formData.currentPharmacyPhone,
-              medications: formData.medications,
-              notes: formData.notes,
-              created_at: new Date().toISOString()
-            }
+      const emailResult = await supabase.functions.invoke('send-transfer-notification', {
+        body: {
+          record: {
+            id: `transfer-${Date.now()}`, 
+            first_name: formData.firstName,
+            last_name: formData.lastName,
+            phone: formData.phone,
+            email: formData.email,
+            date_of_birth: formData.dateOfBirth,
+            current_pharmacy: formData.currentPharmacy,
+            current_pharmacy_phone: formData.currentPharmacyPhone,
+            medications: formData.medications,
+            notes: formData.notes,
+            created_at: new Date().toISOString()
           }
-        });
-        console.log('Email notification sent successfully');
-      } catch (emailError) {
-        console.error('Failed to send email notification:', emailError);
-        // Don't fail the whole process if email fails
+        }
+      });
+
+      if (emailResult.error) {
+        throw new Error('Failed to send email notification');
       }
+
+      console.log('Email notification sent successfully');
 
       toast({
         title: "Transfer Request Submitted!",
