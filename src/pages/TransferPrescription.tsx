@@ -78,6 +78,31 @@ const TransferPrescription: React.FC = () => {
         throw error;
       }
 
+      // Send email notification to pharmacy
+      try {
+        await supabase.functions.invoke('send-transfer-notification', {
+          body: {
+            record: {
+              id: 'temp-id', 
+              first_name: formData.firstName,
+              last_name: formData.lastName,
+              phone: formData.phone,
+              email: formData.email,
+              date_of_birth: formData.dateOfBirth,
+              current_pharmacy: formData.currentPharmacy,
+              current_pharmacy_phone: formData.currentPharmacyPhone,
+              medications: formData.medications,
+              notes: formData.notes,
+              created_at: new Date().toISOString()
+            }
+          }
+        });
+        console.log('Email notification sent successfully');
+      } catch (emailError) {
+        console.error('Failed to send email notification:', emailError);
+        // Don't fail the whole process if email fails
+      }
+
       toast({
         title: "Transfer Request Submitted!",
         description: "Your request has been received. We'll contact you within 24 hours to complete your prescription transfer.",
