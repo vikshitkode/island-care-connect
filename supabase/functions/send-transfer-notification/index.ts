@@ -66,7 +66,7 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     const emailResponse = await resend.emails.send({
-      from: "Mercer Island Pharmacy <onboarding@resend.dev>",
+      from: "Mercer Island Pharmacy <noreply@mercerislandpharmacy.com>",
       to: ["mercerislandpharmacy@gmail.com"],
       subject: `New Transfer Request: ${record.first_name} ${record.last_name}`,
       html: emailHtml,
