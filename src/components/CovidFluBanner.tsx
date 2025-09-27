@@ -34,11 +34,6 @@ const CovidFluBanner = () => {
               <div className="absolute top-3/4 left-3/4 w-8 h-8 border border-white rounded-full animate-pulse delay-700 group-hover:scale-110 transition-transform duration-300"></div>
             </div>
             
-            {/* Shimmer effect */}
-            <div className="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity duration-500">
-              <div className="absolute top-0 -left-4 w-8 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 animate-[shimmer_3s_ease-in-out_infinite]"></div>
-            </div>
-            
             <div className="relative z-10">
               <div className="text-center mb-8">
                 <div className="flex items-center justify-center gap-2 mb-4">
