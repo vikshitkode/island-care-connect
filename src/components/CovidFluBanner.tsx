@@ -15,18 +15,6 @@ const CovidFluBanner = () => {
             {/* Animated background gradient */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] animate-[gradient_4s_ease-in-out_infinite] opacity-80"></div>
             
-            {/* Sparkling effects */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-              <div className="absolute top-4 left-8 w-1 h-1 bg-white rounded-full animate-ping opacity-60"></div>
-              <div className="absolute top-12 right-16 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-pulse delay-300"></div>
-              <div className="absolute bottom-8 left-16 w-1 h-1 bg-white rounded-full animate-ping delay-500 opacity-80"></div>
-              <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-white rounded-full animate-ping delay-700"></div>
-              <div className="absolute top-2/3 right-1/3 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-pulse delay-1000"></div>
-              <div className="absolute bottom-12 right-12 w-1 h-1 bg-white rounded-full animate-ping delay-200"></div>
-              <div className="absolute top-1/2 right-8 w-1 h-1 bg-white rounded-full animate-pulse delay-800"></div>
-              <div className="absolute bottom-1/3 left-8 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-ping delay-400"></div>
-            </div>
-            
             {/* Floating decorative elements */}
             <div className="absolute top-0 left-0 w-full h-full opacity-20">
               <div className="absolute top-4 left-8 w-12 h-12 border border-white rounded-full animate-pulse group-hover:scale-110 transition-transform duration-300"></div>
