@@ -46,21 +46,21 @@ const CovidFluBanner = () => {
                     <span className="text-lg font-bold">✓</span>
                   </div>
                   <h4 className="font-semibold mb-2">Updated Formulas</h4>
-                  <p className="text-sm text-white/80">Latest CDC-approved vaccines for maximum protection</p>
+                  <p className="text-sm text-white/90">Latest CDC-approved vaccines for maximum protection</p>
                 </div>
                 <div className="text-center text-white">
                   <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <span className="text-lg font-bold">⚡</span>
                   </div>
                   <h4 className="font-semibold mb-2">Quick & Easy</h4>
-                  <p className="text-sm text-white/80">Walk-ins welcome or schedule your appointment</p>
+                  <p className="text-sm text-white/90">Walk-ins available or Pre fill a form and walk-in</p>
                 </div>
                 <div className="text-center text-white">
                   <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <span className="text-lg font-bold">🛡️</span>
                   </div>
                   <h4 className="font-semibold mb-2">Insurance Covered</h4>
-                  <p className="text-sm text-white/80">Most insurance plans accepted</p>
+                  <p className="text-sm text-white/90">Most insurance plans accepted</p>
                 </div>
               </div>
               
@@ -71,7 +71,7 @@ const CovidFluBanner = () => {
                   size="lg"
                   className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                 >
-                  Book Your Appointment Today
+                  Get your Shot today
                 </Button>
                 <p className="text-sm text-white/80 mt-3">
                   Call us or walk in during business hours
