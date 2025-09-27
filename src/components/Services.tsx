@@ -32,7 +32,7 @@ const Services = () => {
     },
     {
       title: "Health Screenings",
-      description: "Blood pressure monitoring, cholesterol testing, and diabetes management support.",
+      description: "Blood pressure monitoring, diabetes management support.",
       icon: Heart,
       route: "/services/health-screenings"
     },
