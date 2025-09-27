@@ -25,7 +25,7 @@ const CovidFluBanner = () => {
             <div className="relative z-10">
               <div className="text-center mb-8">
                 <div className="flex items-center justify-center gap-2 mb-4">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110 animate-pulse">
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
                     <Syringe size={32} className="text-white group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <div className="flex items-center gap-2 animate-fade-in">
