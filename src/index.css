@@ -119,6 +119,17 @@ All colors MUST be HSL.
   }
 }
 
+/* Custom animations for the COVID banner */
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) skewX(12deg); }
+  100% { transform: translateX(400%) skewX(12deg); }
+}
+
 @keyframes slide-left {
   from {
     transform: translateX(0);
