@@ -93,11 +93,11 @@ const Immunizations = () => {
                   <span>Faster vaccination process</span>
                 </li>
               </ul>
-              <Link to="/#contact" className="block">
+              <a href="/Mercer_IMZ_Form.pdf" download="Mercer_IMZ_Form.pdf" className="block">
                 <Button size="lg" className="w-full">
                   Download Vaccination Form
                 </Button>
-              </Link>
+              </a>
             </Card>
           </div>
 
