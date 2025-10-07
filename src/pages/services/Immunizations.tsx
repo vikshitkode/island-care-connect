@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, Syringe, FileText, ClipboardEdit } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -7,9 +7,18 @@ import Footer from "@/components/Footer";
 import { useEffect } from "react";
 
 const Immunizations = () => {
+  const navigate = useNavigate();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleVisitUs = () => {
+    navigate('/');
+    setTimeout(() => {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -55,11 +64,9 @@ const Immunizations = () => {
                   <span>Get vaccinated immediately</span>
                 </li>
               </ul>
-              <Link to="/#contact" className="block">
-                <Button size="lg" className="w-full">
-                  Visit Us Today
-                </Button>
-              </Link>
+              <Button size="lg" className="w-full" onClick={handleVisitUs}>
+                Visit Us Today
+              </Button>
             </Card>
 
             <Card className="p-8 hover:shadow-lg transition-shadow border-2 hover:border-primary/50">
