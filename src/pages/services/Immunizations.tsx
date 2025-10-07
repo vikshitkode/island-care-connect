@@ -39,6 +39,24 @@ const Immunizations = () => {
             </p>
           </div>
 
+          <div className="bg-card p-6 rounded-lg border mb-8">
+            <h3 className="text-xl font-semibold mb-4 text-center">Available Vaccines</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <ul className="space-y-2 text-muted-foreground">
+                <li>• COVID-19 vaccines & boosters</li>
+                <li>• Annual flu shots</li>
+                <li>• Shingles vaccine</li>
+                <li>• Pneumonia vaccine</li>
+              </ul>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>• HPV vaccine</li>
+                <li>• Tdap (Tetanus, Diphtheria, Pertussis)</li>
+                <li>• Hepatitis A & B</li>
+                <li>• Travel immunizations</li>
+              </ul>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <Card className="p-8 hover:shadow-lg transition-shadow border-2 hover:border-primary/50">
               <div className="text-center mb-6">
@@ -99,24 +117,6 @@ const Immunizations = () => {
                 </Button>
               </a>
             </Card>
-          </div>
-
-          <div className="bg-card p-6 rounded-lg border mb-8">
-            <h3 className="text-xl font-semibold mb-4 text-center">Available Vaccines</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• COVID-19 vaccines & boosters</li>
-                <li>• Annual flu shots</li>
-                <li>• Shingles vaccine</li>
-                <li>• Pneumonia vaccine</li>
-              </ul>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• HPV vaccine</li>
-                <li>• Tdap (Tetanus, Diphtheria, Pertussis)</li>
-                <li>• Hepatitis A & B</li>
-                <li>• Travel immunizations</li>
-              </ul>
-            </div>
           </div>
         </div>
       </main>
