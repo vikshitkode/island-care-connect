@@ -1,10 +1,12 @@
 import { Syringe, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const CovidFluBanner = () => {
+  const navigate = useNavigate();
+  
   const handleBookAppointment = () => {
-    // Scroll to contact section
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    navigate('/services/immunizations');
   };
 
   return (
