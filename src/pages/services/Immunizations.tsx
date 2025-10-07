@@ -95,7 +95,7 @@ const Immunizations = () => {
               </ul>
               <Link to="/#contact" className="block">
                 <Button size="lg" className="w-full">
-                  Fill Form Online
+                  Download Vaccination Form
                 </Button>
               </Link>
             </Card>
