@@ -76,7 +76,7 @@ const CovidFluBanner = () => {
                   Get your Shot today
                 </Button>
                 <p className="text-sm text-white/80 mt-3">
-                  Call us or walk in during business hours
+                  Walk-ins available during business hours only
                 </p>
               </div>
             </div>
