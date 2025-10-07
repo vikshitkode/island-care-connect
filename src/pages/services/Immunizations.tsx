@@ -116,6 +116,30 @@ const Immunizations = () => {
                   Download Vaccination Form
                 </Button>
               </a>
+              
+              <div className="mt-6 pt-6 border-t">
+                <h4 className="font-semibold mb-4 text-center">Instructions</h4>
+                <div className="space-y-4 text-sm text-muted-foreground">
+                  <div className="flex gap-3">
+                    <span className="font-semibold text-primary shrink-0">Step 1:</span>
+                    <span>Download the immunizations form and take a paper printout (Color or B&W) (US Letter size or A4 size)</span>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="font-semibold text-primary shrink-0">Step 2:</span>
+                    <div>
+                      <p>Fill out the form</p>
+                      <ul className="mt-1 ml-4 space-y-1">
+                        <li>• Fill out the date on the day of your visit</li>
+                        <li>• Don't forget to sign the form</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="font-semibold text-primary shrink-0">Step 3:</span>
+                    <span>Visit the pharmacy and hand over the filled form</span>
+                  </div>
+                </div>
+              </div>
             </Card>
           </div>
         </div>
