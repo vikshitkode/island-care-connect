@@ -1,4 +1,4 @@
-import { Phone, MapPin, Mail, Pill, Users, PhoneCall, RotateCcw, Printer } from "lucide-react";
+import { Phone, MapPin, Mail, Pill, Users, PhoneCall, RotateCcw, Printer, Facebook, Instagram, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -22,6 +22,35 @@ const Footer = () => {
               Your trusted neighborhood pharmacy providing personalized care 
               and comprehensive health services.
             </p>
+            <div className="flex gap-4 items-center">
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                aria-label="Visit our Facebook page"
+              >
+                <Facebook size={20} className="text-white" />
+              </a>
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                aria-label="Visit our Instagram page"
+              >
+                <Instagram size={20} className="text-white" />
+              </a>
+              <a 
+                href="https://twitter.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                aria-label="Visit our Twitter page"
+              >
+                <Twitter size={20} className="text-white" />
+              </a>
+            </div>
           </div>
           
           <div>
