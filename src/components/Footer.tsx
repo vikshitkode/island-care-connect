@@ -1,4 +1,4 @@
-import { Phone, MapPin, Mail, Pill, Users, PhoneCall, RotateCcw, Printer, Facebook, Instagram, Twitter } from "lucide-react";
+import { Phone, MapPin, Mail, Pill, Users, PhoneCall, RotateCcw, Printer, Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -46,9 +46,18 @@ const Footer = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
-                aria-label="Visit our Twitter page"
+                aria-label="Visit our X page"
               >
                 <Twitter size={20} className="text-white" />
+              </a>
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                aria-label="Visit our LinkedIn page"
+              >
+                <Linkedin size={20} className="text-white" />
               </a>
             </div>
           </div>
