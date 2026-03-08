@@ -7,64 +7,14 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instanciate createClient with right options
+  // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "12.2.12 (cd3cf9e)"
+    PostgrestVersion: "14.1"
   }
   public: {
     Tables: {
-      transfer_requests: {
-        Row: {
-          created_at: string
-          current_pharmacy: string
-          current_pharmacy_phone: string | null
-          date_of_birth: string | null
-          email: string | null
-          first_name: string
-          id: string
-          last_name: string
-          medications: string | null
-          notes: string | null
-          phone: string
-          status: string | null
-          updated_at: string
-          user_id: string | null
-        }
-        Insert: {
-          created_at?: string
-          current_pharmacy: string
-          current_pharmacy_phone?: string | null
-          date_of_birth?: string | null
-          email?: string | null
-          first_name: string
-          id?: string
-          last_name: string
-          medications?: string | null
-          notes?: string | null
-          phone: string
-          status?: string | null
-          updated_at?: string
-          user_id?: string | null
-        }
-        Update: {
-          created_at?: string
-          current_pharmacy?: string
-          current_pharmacy_phone?: string | null
-          date_of_birth?: string | null
-          email?: string | null
-          first_name?: string
-          id?: string
-          last_name?: string
-          medications?: string | null
-          notes?: string | null
-          phone?: string
-          status?: string | null
-          updated_at?: string
-          user_id?: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
