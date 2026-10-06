@@ -87,15 +87,6 @@ const Header = () => {
             </button>
             <button 
               onClick={() => {
-                handleSectionClick('about');
-                setIsMobileMenuOpen(false);
-              }}
-              className="block w-full text-left text-muted-foreground hover:text-primary transition-colors py-2"
-            >
-              About
-            </button>
-            <button 
-              onClick={() => {
                 handleSectionClick('contact');
                 setIsMobileMenuOpen(false);
               }}
