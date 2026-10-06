@@ -62,7 +62,7 @@ const CovidFluBanner = () => {
                   onClick={handleBookAppointment}
                   variant="secondary" 
                   size="lg"
-                  className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                  className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-4 text-lg shadow-lg"
                 >
                   Get your Shot today
                 </Button>
