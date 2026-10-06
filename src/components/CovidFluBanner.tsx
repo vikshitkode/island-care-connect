@@ -14,15 +14,6 @@ const CovidFluBanner = () => {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="bg-gradient-to-r from-primary via-primary/90 to-accent rounded-2xl shadow-2xl border border-primary/20 relative overflow-hidden p-8 lg:p-12">
-            {/* Background decorative elements */}
-            <div className="absolute top-0 left-0 w-full h-full opacity-10">
-              <div className="absolute top-4 left-8 w-12 h-12 border border-white rounded-full animate-pulse"></div>
-              <div className="absolute bottom-4 right-8 w-16 h-16 border border-white rounded-full animate-pulse delay-1000"></div>
-              <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-white rounded-full animate-ping"></div>
-              <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-white rounded-full animate-ping delay-500"></div>
-              <div className="absolute top-3/4 left-3/4 w-1.5 h-1.5 bg-white rounded-full animate-ping delay-700"></div>
-            </div>
-            
             <div className="relative z-10">
               <div className="text-center mb-8">
                 <div className="flex items-center justify-center gap-2 mb-4">
